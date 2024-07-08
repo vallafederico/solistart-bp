@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+
+  @apply bg-black text-white;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+@layer components {
+  main {
+    @apply: min-h-screen;
+  }
+}
+
+/* @media screen and (min-width: 640px) {
+  .flex-center {
+  }
+} */
