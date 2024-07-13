@@ -41,7 +41,7 @@ export function createLocationCallback(
   createEffect(() => {
     // console.log("G:location", location.pathname);
 
-    handleLinks(navigate, location.pathname);
+    // handleLinks(navigate, location.pathname);
     if (callback) callback(location);
   });
 }

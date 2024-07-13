@@ -1,6 +1,8 @@
 import { Title } from "@solidjs/meta";
 import { createLocationCallback } from "~/hooks/createLocationCallback";
 import AppearingText from "~/components/AppearingText";
+import { Aa } from "~/components/Aa";
+import Alpha from "~/components/Alpha";
 
 export default function Home() {
   createLocationCallback();
@@ -9,6 +11,10 @@ export default function Home() {
     <main class="py-20  h-[300vh]">
       <Title>About</Title>
       <AppearingText>About</AppearingText>
+
+      <Alpha>
+        <Aa url="/">To About Page</Aa>
+      </Alpha>
     </main>
   );
 }
