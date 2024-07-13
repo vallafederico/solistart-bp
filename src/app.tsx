@@ -2,18 +2,14 @@ import "./app.css";
 import { MetaProvider, Title } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
-import { Suspense, useTransition } from "solid-js";
+import { createEffect, Suspense } from "solid-js";
 import { Nav } from "./components/Nav";
 import { Scroll } from "./components/Scroll";
 
-export default function App() {
-  const [isPending, start] = useTransition();
+import { useLocation } from "@solidjs/router";
 
-  setTimeout(() => {
-    start(() => {
-      console.log("done");
-    });
-  }, 2000);
+export default function App() {
+  // const [isPending, start] = useTransition();
 
   return (
     <Scroll>
@@ -22,6 +18,7 @@ export default function App() {
           <MetaProvider>
             <Title>SolidStart - Basic</Title>
             <Nav />
+
             <Suspense>{props.children}</Suspense>
           </MetaProvider>
         )}

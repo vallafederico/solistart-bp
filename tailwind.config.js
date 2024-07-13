@@ -6,6 +6,7 @@ export default {
       spacing: {
         gx: "5vw",
         px: "2vh",
+        gy: "5vh",
       },
     },
   },

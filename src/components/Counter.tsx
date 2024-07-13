@@ -1,7 +1,5 @@
 import { createEffect, createSignal } from "solid-js";
-
 import { App } from "../gl/app";
-
 import { webgl, setWebgl } from "~/stores/webgl";
 
 export default function Counter() {
@@ -10,7 +8,7 @@ export default function Counter() {
   createEffect(() => {
     App.stateChange(count());
 
-    console.log("webgl alive (store)", webgl.alive);
+    // console.log("webgl alive (store)", webgl.alive);
   });
 
   return (

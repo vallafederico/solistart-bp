@@ -1,10 +1,14 @@
 import { Title } from "@solidjs/meta";
+import { createLocationCallback } from "~/hooks/createLocationCallback";
+import AppearingText from "~/components/AppearingText";
 
 export default function Home() {
+  createLocationCallback();
+
   return (
-    <main class="py-20 px-gx h-[300vh]">
+    <main class="py-20  h-[300vh]">
       <Title>About</Title>
-      <h1>About</h1>
+      <AppearingText>About</AppearingText>
     </main>
   );
 }
