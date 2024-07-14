@@ -1,5 +1,7 @@
 import { createStore } from "solid-js/store";
 import gsap from "~/gsap";
+import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
+import { createEffect } from "solid-js";
 
 /** animations */
 const globalOut = async (duration = 0.5) =>
@@ -26,5 +28,21 @@ function out(fn) {
   setAnimateOut("elements", [...animateOut.elements, fn]);
 }
 
+function inView(ref, { inA, outA } = {}) {
+  console.log("viewOBS", ref);
+  const vo = createVisibilityObserver(ref, { threshold: 0.5 });
+  const visible = vo(() => ref);
+
+  createEffect(() => {
+    if (visible()) {
+      console.log("in view");
+      inA?.();
+    } else {
+      console.log("not in view");
+      outA?.();
+    }
+  });
+}
+
 /** exports */
-export { animateOut, setAnimateOut, reset, out };
+export { animateOut, setAnimateOut, reset, out, inView };
