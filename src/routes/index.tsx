@@ -21,7 +21,7 @@ export default function Home() {
         </Alpha>
 
         <Alpha>
-          <Aa url="/about">To About Page</Aa>
+          <Aa to="/about">To About Page</Aa>
         </Alpha>
       </Section>
     </main>

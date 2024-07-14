@@ -8,6 +8,7 @@ const [animateOut, setAnimateOut] = createStore({
         autoAlpha: 0,
         ease: "expo.out",
         duration,
+        delay: 0.5,
       }),
   ],
 });
@@ -20,9 +21,16 @@ function reset() {
           autoAlpha: 0,
           ease: "expo.out",
           duration,
+          delay: 0.5,
         }),
     ],
   });
 }
 
-export { animateOut, setAnimateOut, reset };
+function animationOut(fn) {
+  setAnimateOut("elements", [...animateOut.elements, fn]);
+}
+
+/** lifecycle */
+
+export { animateOut, setAnimateOut, reset, animationOut };

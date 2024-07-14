@@ -13,7 +13,7 @@ export default function Home() {
       <AppearingText>About</AppearingText>
 
       <Alpha>
-        <Aa url="/">To About Page</Aa>
+        <Aa to="/">To About Page</Aa>
       </Alpha>
     </main>
   );
