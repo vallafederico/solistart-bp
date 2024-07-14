@@ -3,14 +3,26 @@ import gsap from "~/gsap";
 
 const [animateOut, setAnimateOut] = createStore({
   elements: [
-    async (duration = 0.6) => {
+    async (duration = 1.2) =>
       await gsap.to("main", {
         autoAlpha: 0,
         ease: "expo.out",
-        duration: duration,
-      });
-    },
+        duration,
+      }),
   ],
 });
 
-export { animateOut, setAnimateOut };
+function reset() {
+  setAnimateOut({
+    elements: [
+      async (duration = 1.2) =>
+        await gsap.to("main", {
+          autoAlpha: 0,
+          ease: "expo.out",
+          duration,
+        }),
+    ],
+  });
+}
+
+export { animateOut, setAnimateOut, reset };

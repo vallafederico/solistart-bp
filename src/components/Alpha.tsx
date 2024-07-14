@@ -12,8 +12,8 @@ export default function Alpha({ children }: { children: any }) {
   };
 
   return (
-    <p use:animateIn={self} class="px-gx py-gy ">
+    <div use:animateIn={self} class="px-gx py-gy block ">
       {children}
-    </p>
+    </div>
   );
 }

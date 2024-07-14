@@ -6,28 +6,28 @@ export const Aa = ({ children, url }: { children: any; url: string }) => {
   let el!: HTMLAnchorElement;
   const navigate = useNavigate();
 
-  // const outAnimation = async () => {
-  //   console.log("hi", el);
-  //   gsap.to(el, {
-  //     scale: 3,
-  //     duration: 1.2,
-  //     ease: "expo.out",
-  //     onStart: () => {},
-  //   });
-  // };
+  const outAnimation = async () => {
+    await gsap.to(el, {
+      autoAlpha: 0,
+      y: 10,
+      duration: 1.2,
+      ease: "expo.out",
+    });
+  };
 
-  // setAnimateOut("elements", (curr) => [...curr, outAnimation]);
+  setAnimateOut("elements", [...animateOut.elements, outAnimation]);
+
+  console.log(animateOut.elements);
 
   const handleClick = async (e: any) => {
     e.preventDefault();
 
-    // Promise.allSettled([await animateOut.elements[0]()]);
-    await Promise.allSettled(animateOut.elements.map((item) => item()));
+    await Promise.all(animateOut.elements.map(async (fn) => await fn()));
     navigate(el.pathname);
   };
 
   return (
-    <a ref={el} onClick={handleClick} href={url}>
+    <a ref={el} onClick={handleClick} href={url} class="block">
       {children}
     </a>
   );
