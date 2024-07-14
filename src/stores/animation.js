@@ -1,36 +1,30 @@
 import { createStore } from "solid-js/store";
 import gsap from "~/gsap";
 
+/** animations */
+const globalOut = async (duration = 0.5) =>
+  await gsap.to("main", {
+    autoAlpha: 0,
+    ease: "expo.out",
+    duration,
+    delay: 0.5,
+  });
+
+/** store */
 const [animateOut, setAnimateOut] = createStore({
-  elements: [
-    async (duration = 1.2) =>
-      await gsap.to("main", {
-        autoAlpha: 0,
-        ease: "expo.out",
-        duration,
-        delay: 0.5,
-      }),
-  ],
+  elements: [globalOut],
 });
 
 function reset() {
   setAnimateOut({
-    elements: [
-      async (duration = 1.2) =>
-        await gsap.to("main", {
-          autoAlpha: 0,
-          ease: "expo.out",
-          duration,
-          delay: 0.5,
-        }),
-    ],
+    elements: [globalOut],
   });
 }
 
-function animationOut(fn) {
+/** lifecycle */
+function out(fn) {
   setAnimateOut("elements", [...animateOut.elements, fn]);
 }
 
-/** lifecycle */
-
-export { animateOut, setAnimateOut, reset, animationOut };
+/** exports */
+export { animateOut, setAnimateOut, reset, out };

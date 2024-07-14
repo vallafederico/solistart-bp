@@ -5,11 +5,7 @@ import AppearingText from "~/components/AppearingText";
 import Alpha from "~/components/Alpha";
 import { Aa } from "~/components/Aa";
 
-import { createLocationCallback } from "~/hooks/createLocationCallback";
-
 export default function Home() {
-  createLocationCallback();
-
   return (
     <main class="pt-20  min-h-[200vh]">
       <Title>Home</Title>

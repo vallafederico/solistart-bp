@@ -1,18 +1,20 @@
+import { Aa } from "./Aa";
+
 export const Nav = () => {
   return (
     <nav class="fixed top-0 left-0 px-gx flex items-center justify-between w-screen py-2">
-      <p>logo</p>
+      <p>LOGO</p>
 
       <ul class="flex justify-between">
         <li>
-          <a class="px-3 py-2" href="/">
+          <Aa to="/" class="px-3" doesAnimate={false}>
             Index
-          </a>
+          </Aa>
         </li>
         <li>
-          <a class="px-3 py-2" href="/about">
+          <Aa to="/about" class="px-3" doesAnimate={false}>
             About
-          </a>
+          </Aa>
         </li>
       </ul>
     </nav>
