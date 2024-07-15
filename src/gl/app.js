@@ -1,5 +1,7 @@
 import { webgl, setWebgl } from "~/stores/webgl";
+import { ctrl } from "~/stores/controllerStore";
 import { Raf } from "~/animation/raf";
+import { createEffect } from "solid-js";
 
 export class App {
   static isinit = false;
@@ -13,6 +15,14 @@ export class App {
     Raf.subscribe(this.render.bind(this), "app");
   }
 
+  /** -- controller */
+  static initController() {
+    createEffect(() => {
+      // console.log("app controller", ctrl.state);
+    });
+  }
+
+  /** -- IO */
   static callsmth(smth) {
     // console.log("App.callsmth", smth);
   }
@@ -28,11 +38,13 @@ export class App {
   }
 
   /** -- render */
+
   static render() {
     // console.log("app:render");
   }
 
   /** -- scroll */
+
   static onScroll({ velocity, scroll, direction }) {
     // console.log("app:scroll", velocity, scroll, direction);
   }

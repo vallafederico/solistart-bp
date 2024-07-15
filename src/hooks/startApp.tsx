@@ -18,6 +18,8 @@ export function startApp() {
     });
     initResize();
   });
+
+  App.initController();
 }
 
 /** -- Resize */
