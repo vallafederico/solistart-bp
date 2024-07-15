@@ -2,17 +2,10 @@ import { createVisibilityObserver } from "@solid-primitives/intersection-observe
 import { createEffect } from "solid-js";
 import { setCtrlTransition } from "~/stores/controllerStore";
 import { createStore } from "solid-js/store";
-
 import gsap from "~/gsap";
 
 /** animations */
-const globalOut = async (duration = 0.5) =>
-  await gsap.to("main", {
-    autoAlpha: 0,
-    ease: "expo.out",
-    duration,
-    delay: 0.5,
-  });
+import { globalOut } from "./global";
 
 /** page/router controllers */
 const [outTransitions, setOutTransition] = createStore({
@@ -34,7 +27,7 @@ function reset() {
   });
 }
 
-/** lifecycle */
+/** -- Lifecycle */
 
 function onOut(fn) {
   setOutTransition("elements", [...outTransitions.elements, fn]);
@@ -56,3 +49,4 @@ function onView(ref, { onIn = () => {}, onOut = () => {}, once = true } = {}) {
 /** exports */
 export { animateOutAndTransition };
 export { onOut, onView };
+export { onScroll, onTrack } from "./lib/scrolling";

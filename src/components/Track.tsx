@@ -1,9 +1,5 @@
-import { onCleanup, onMount, createEffect } from "solid-js";
-
-import { onView, onOut } from "~/animation/";
+import { onScroll, onTrack } from "~/animation/";
 import gsap from "~/gsap";
-
-import { Scroll } from "~/animation/scroll";
 
 export default function Track({
   children,
@@ -13,14 +9,8 @@ export default function Track({
   class?: string;
 }) {
   const animate = (self: any) => {
-    createEffect(() => {
-      Scroll.subscribe((value: any) => {
-        // console.log(value.scroll);
-      }, 0);
-    });
-
-    onCleanup(() => {
-      Scroll.unsubscribe(0);
+    onScroll((value: any) => {
+      console.log(value);
     });
   };
 

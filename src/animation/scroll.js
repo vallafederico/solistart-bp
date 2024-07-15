@@ -7,6 +7,7 @@ export class Scroll {
 
   static init() {
     this.lenis = new Lenis();
+
     gsap.ticker.add((time) => this.lenis.raf(time * 1000));
     this.lenis.on("scroll", ({ velocity, scroll, direction }) => {
       this.onScroll({ velocity, scroll, direction });
@@ -15,15 +16,15 @@ export class Scroll {
   }
 
   static subscribe(sub, id) {
-    if (!this.#subscribers.find(({ id: _id }) => _id === id)) {
+    if (!this.#subscribers.find(({ id: _id }) => _id === id))
       this.#subscribers.push({ sub, id });
-    }
-    console.log("sub:", this.#subscribers);
+
+    console.log("sub:", id, this.#subscribers);
   }
 
   static unsubscribe(id) {
     this.#subscribers = this.#subscribers.filter(({ id: _id }) => _id !== id);
-    console.log("unsub:", this.#subscribers);
+    console.log("unsub:", id, this.#subscribers);
   }
 
   static onScroll({ velocity, scroll, direction }) {
