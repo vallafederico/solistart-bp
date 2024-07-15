@@ -1,10 +1,7 @@
 import { Title } from "@solidjs/meta";
 import { HttpStatusCode } from "@solidjs/start";
-import { createLocationCallback } from "~/hooks/createLocationCallback";
 
 export default function NotFound() {
-  createLocationCallback();
-
   return (
     <main>
       <Title>Not Found</Title>
