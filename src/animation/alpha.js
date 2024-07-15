@@ -1,10 +1,11 @@
 import gsap from "~/gsap";
-import { onView, onOut } from "~/stores/animationStore";
+import { onView, onOut } from "~/animation/";
 
 export const animateAlpha = (self) => {
+  let viewAnimation;
   onView(self, {
     onIn: () => {
-      gsap.to(self, {
+      viewAnimation = gsap.to(self, {
         autoAlpha: 1,
         duration: 0.8,
         ease: "linear",
@@ -12,6 +13,7 @@ export const animateAlpha = (self) => {
       });
     },
     onOut: () => {
+      if (viewAnimation) viewAnimation.kill();
       gsap.set(self, { autoAlpha: 0 });
     },
   });

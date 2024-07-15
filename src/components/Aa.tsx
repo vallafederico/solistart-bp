@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "@solidjs/router";
-import { animateOutAndTransition } from "~/stores/animationStore";
+import { animateOutAndTransition } from "~/animation/";
 
 export const Aa = ({
   children,

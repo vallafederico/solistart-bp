@@ -1,5 +1,5 @@
 import gsap from "~/gsap";
-import { onOut } from "~/stores/animationStore";
+import { onOut } from "~/animation/";
 
 export default function AppearingText({ children }: { children: any }) {
   const animate = (self: any) => {

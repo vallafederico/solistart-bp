@@ -5,28 +5,28 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 
 import { Nav } from "./components/Nav";
-import { Scroll } from "./components/Scroll";
+
+import { startApp } from "./hooks/startApp";
 import { useLocationCallback } from "./hooks/useLocationCallback";
 
 export default function App() {
   useLocationCallback();
+  startApp();
 
   return (
-    <Scroll>
-      <Router
-        root={(props) => (
-          <MetaProvider>
-            <Title>SolidStart - Basic</Title>
-            <Nav />
+    <Router
+      root={(props) => (
+        <MetaProvider>
+          <Title>SolidStart - Basic</Title>
+          <Nav />
 
-            <Suspense>{props.children}</Suspense>
-          </MetaProvider>
-        )}
-      >
-        <Suspense fallback={<div>loading things</div>}>
-          <FileRoutes />
-        </Suspense>
-      </Router>
-    </Scroll>
+          <Suspense>{props.children}</Suspense>
+        </MetaProvider>
+      )}
+    >
+      <Suspense fallback={<div>loading things</div>}>
+        <FileRoutes />
+      </Suspense>
+    </Router>
   );
 }
