@@ -3,9 +3,13 @@ import AppearingText from "~/components/AppearingText";
 import { Aa } from "~/components/Aa";
 import { animateAlpha } from "~/components/alpha.js";
 
-export default function Home() {
+import { setLocationCallback } from "~/hooks/useLocationCallback";
+
+export default function About() {
+  setLocationCallback();
+
   return (
-    <main class="py-20  h-[300vh]">
+    <main class="h-[300vh] py-20">
       <Title>About</Title>
       <AppearingText>About</AppearingText>
 

@@ -4,8 +4,11 @@ import Section from "~/components/Section";
 import AppearingText from "~/components/AppearingText";
 import { Aa } from "~/components/Aa";
 import Observe from "~/components/Observe";
+import { setLocationCallback } from "~/hooks/useLocationCallback";
 
 export default function Home() {
+  setLocationCallback();
+
   return (
     <main class="min-h-[200vh] pt-20">
       <Title>Home</Title>

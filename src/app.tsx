@@ -2,14 +2,14 @@ import "./app.css";
 import { MetaProvider, Title } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
-import { createEffect, Suspense } from "solid-js";
+import { Suspense } from "solid-js";
+
 import { Nav } from "./components/Nav";
 import { Scroll } from "./components/Scroll";
-
-import { useLocation } from "@solidjs/router";
+import { useLocationCallback } from "./hooks/useLocationCallback";
 
 export default function App() {
-  // const [isPending, start] = useTransition();
+  useLocationCallback();
 
   return (
     <Scroll>

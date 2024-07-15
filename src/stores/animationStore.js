@@ -2,6 +2,7 @@ import { createStore } from "solid-js/store";
 import gsap from "~/gsap";
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
 import { createEffect } from "solid-js";
+import { setCtrlTransition } from "~/stores/controllerStore";
 
 /** animations */
 const globalOut = async (duration = 0.5) =>
@@ -19,6 +20,8 @@ const [outTransitions, setOutTransition] = createStore({
 
 async function animateOutAndTransition(to, el, navigate, location) {
   if (location.pathname === to) return;
+  setCtrlTransition(to);
+
   await Promise.all(outTransitions.elements.map(async (fn) => await fn()));
   navigate(el.pathname);
   reset();
