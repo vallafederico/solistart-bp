@@ -3,7 +3,7 @@ import AppearingText from "~/components/AppearingText";
 import { Aa } from "~/components/Aa";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
-import { animateAlpha } from "~/components/alpha.js";
+import { animateAlpha } from "~/animation/alpha.js";
 
 export default function About() {
   setLocationCallback();

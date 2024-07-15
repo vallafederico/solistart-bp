@@ -1,4 +1,4 @@
-import { onView, onOut } from "~/stores/animationStore";
+import { onView, onOut } from "~/animation/";
 import gsap from "~/gsap";
 import { onCleanup, onMount } from "solid-js";
 

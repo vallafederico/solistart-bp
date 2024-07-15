@@ -1,8 +1,9 @@
-import { createStore } from "solid-js/store";
-import gsap from "~/gsap";
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
 import { createEffect } from "solid-js";
 import { setCtrlTransition } from "~/stores/controllerStore";
+import { createStore } from "solid-js/store";
+
+import gsap from "~/gsap";
 
 /** animations */
 const globalOut = async (duration = 0.5) =>

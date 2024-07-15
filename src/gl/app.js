@@ -1,4 +1,5 @@
 import { webgl, setWebgl } from "~/stores/webgl";
+import gsap from "~/gsap";
 
 export class App {
   static isinit = false;
@@ -18,6 +19,10 @@ export class App {
     // console.log("App.stateChange", state);
   }
 
+  /** -- Scroll handler */
+  static render() {}
+
+  /** -- Scroll handler */
   static onScroll({ velocity, scroll, direction }) {
     // console.log("app:scroll", velocity, scroll, direction);
   }

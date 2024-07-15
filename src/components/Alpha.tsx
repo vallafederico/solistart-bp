@@ -1,5 +1,5 @@
 import gsap from "~/gsap";
-import { animateAlpha } from "./alpha.js";
+import { animateAlpha } from "~/animation/alpha.js";
 
 export default function Alpha({
   children,

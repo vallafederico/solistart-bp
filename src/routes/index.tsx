@@ -4,8 +4,10 @@ import Section from "~/components/Section";
 import AppearingText from "~/components/AppearingText";
 import { Aa } from "~/components/Aa";
 import Observe from "~/components/Observe";
+import Track from "~/components/Track";
+
 import { setLocationCallback } from "~/hooks/useLocationCallback";
-import { animateAlpha } from "~/components/alpha.js";
+import { animateAlpha } from "~/animation/alpha.js";
 
 export default function Home() {
   setLocationCallback();
@@ -24,9 +26,16 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section class="px-gx py-[100vh]">
+      <Section class="px-gx py-[50vh]">
         <Observe>Hello</Observe>
       </Section>
+
+      <Section class="flex-center h-[100vh] border px-gx">
+        <Track>Tracked</Track>
+      </Section>
+
+      <Section class="flex-center h-[100vh] px-gx">not tracked</Section>
+      <Section class="flex-center h-[50vh] px-gx">not tracked</Section>
     </main>
   );
 }
