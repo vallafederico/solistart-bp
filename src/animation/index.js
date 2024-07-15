@@ -27,26 +27,7 @@ function reset() {
   });
 }
 
-/** -- Lifecycle */
-
-function onOut(fn) {
-  setOutTransition("elements", [...outTransitions.elements, fn]);
-}
-
-function onView(ref, { onIn = () => {}, onOut = () => {}, once = true } = {}) {
-  const vo = createVisibilityObserver({ threshold: 0.5 });
-  const visible = vo(ref);
-
-  createEffect(() => {
-    if (visible()) {
-      if (onIn) onIn();
-    } else {
-      if (onOut) onOut();
-    }
-  });
-}
-
 /** exports */
-export { animateOutAndTransition };
-export { onOut, onView };
+export { animateOutAndTransition, setOutTransition, outTransitions };
+export { onOut, onView } from "./lib/lifecycle";
 export { onScroll, onTrack } from "./lib/scrolling";

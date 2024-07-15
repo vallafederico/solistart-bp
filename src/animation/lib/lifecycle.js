@@ -1,5 +1,6 @@
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
 import { createEffect } from "solid-js";
+import { setOutTransition, outTransitions } from "../index";
 
 export function onOut(fn) {
   setOutTransition("elements", [...outTransitions.elements, fn]);

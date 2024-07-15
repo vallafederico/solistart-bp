@@ -10,7 +10,7 @@ export default function Track({
 }) {
   const animate = (self: any) => {
     onScroll((value: any) => {
-      console.log(value);
+      // console.log(value);
     });
   };
 

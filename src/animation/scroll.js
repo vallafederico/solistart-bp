@@ -18,13 +18,12 @@ export class Scroll {
   static subscribe(sub, id) {
     if (!this.#subscribers.find(({ id: _id }) => _id === id))
       this.#subscribers.push({ sub, id });
-
-    console.log("sub:", id, this.#subscribers);
+    // console.log("sub:", id, this.#subscribers);
   }
 
   static unsubscribe(id) {
     this.#subscribers = this.#subscribers.filter(({ id: _id }) => _id !== id);
-    console.log("unsub:", id, this.#subscribers);
+    // console.log("unsub:", id, this.#subscribers);
   }
 
   static onScroll({ velocity, scroll, direction }) {
