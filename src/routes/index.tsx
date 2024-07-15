@@ -5,6 +5,7 @@ import AppearingText from "~/components/AppearingText";
 import { Aa } from "~/components/Aa";
 import Observe from "~/components/Observe";
 import { setLocationCallback } from "~/hooks/useLocationCallback";
+import { animateAlpha } from "~/components/alpha.js";
 
 export default function Home() {
   setLocationCallback();
@@ -16,7 +17,7 @@ export default function Home() {
       <Section>
         <AppearingText>Hello</AppearingText>
 
-        <div class="flex flex-col items-start gap-10 px-gx">
+        <div use:animateAlpha class="flex flex-col items-start gap-10 px-gx">
           <Counter />
 
           <Aa to="/about">To About Page</Aa>
