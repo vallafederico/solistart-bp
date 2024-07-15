@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@solid-primitives/intersection-observer": "^2.1.6",
+    "@solid-primitives/resize-observer": "^2.0.26",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.14.1",
     "@solidjs/start": "^1.0.4",
@@ -25,6 +26,6 @@
     "postcss": "^8.4.39",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.5"
   }
 }

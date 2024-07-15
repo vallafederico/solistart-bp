@@ -5,16 +5,13 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 
 import { Nav } from "./components/Nav";
-// import { Scroll } from "./components/Scroll";
-import { Scroll } from "./animation/scroll";
+
+import { startApp } from "./hooks/startApp";
 import { useLocationCallback } from "./hooks/useLocationCallback";
-import { createEffect } from "solid-js";
 
 export default function App() {
   useLocationCallback();
-  createEffect(() => {
-    Scroll.init();
-  });
+  startApp();
 
   return (
     <Router
