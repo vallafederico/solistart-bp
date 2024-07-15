@@ -7,12 +7,12 @@ export const Nav = () => {
 
       <ul class="flex justify-between">
         <li>
-          <Aa to="/" class="px-3" doesAnimate={false}>
+          <Aa to="/" class="px-3">
             Index
           </Aa>
         </li>
         <li>
-          <Aa to="/about" class="px-3" doesAnimate={false}>
+          <Aa to="/about" class="px-3">
             About
           </Aa>
         </li>

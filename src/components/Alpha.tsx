@@ -1,18 +1,15 @@
-// import { createEffect, createSignal } from "solid-js";
 import gsap from "~/gsap";
+import { animateAlpha } from "./alpha.js";
 
-export default function Alpha({ children }: { children: any }) {
-  const animateIn = (self: any) => {
-    gsap.from(self, {
-      autoAlpha: 0,
-      duration: 0.8,
-      ease: "linear",
-      delay: 0.3,
-    });
-  };
-
+export default function Alpha({
+  children,
+  class: className,
+}: {
+  children: any;
+  class?: string;
+}) {
   return (
-    <div use:animateIn={self} class="px-gx py-gy block ">
+    <div use:animateAlpha={self} class={`${className}`}>
       {children}
     </div>
   );

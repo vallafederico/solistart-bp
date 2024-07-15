@@ -1,7 +1,7 @@
 import { Title } from "@solidjs/meta";
 import AppearingText from "~/components/AppearingText";
 import { Aa } from "~/components/Aa";
-import Alpha from "~/components/Alpha";
+import { animateAlpha } from "~/components/alpha.js";
 
 export default function Home() {
   return (
@@ -9,9 +9,9 @@ export default function Home() {
       <Title>About</Title>
       <AppearingText>About</AppearingText>
 
-      <Alpha>
-        <Aa to="/">To Home Page</Aa>
-      </Alpha>
+      <Aa to="/">
+        <p use:animateAlpha={self}>To Home Page</p>
+      </Aa>
     </main>
   );
 }

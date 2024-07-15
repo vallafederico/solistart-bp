@@ -1,8 +1,6 @@
 // import { createEffect, createSignal } from "solid-js";
-// import { inView } from "~/stores/animation";
+import { onView, onOut } from "~/stores/animationStore";
 import gsap from "~/gsap";
-import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
-import { createEffect } from "solid-js";
 
 export default function Observe({
   children,
@@ -12,25 +10,35 @@ export default function Observe({
   class?: string;
 }) {
   const animate = (self: any) => {
-    console.log("self", self);
+    gsap.set(self, { autoAlpha: 0, y: -10 });
 
-    // *** ACTUAL SETUP
-    // inView(self, {
-    //   inA: () => {},
-    //   outA: () => {},
-    // });
+    let inviewAnimation: gsap.core.Tween | null = null;
+    onView(self, {
+      onIn: () => {
+        inviewAnimation = gsap.to(self, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1.2,
+          delay: 0.1,
+          ease: "slow.out",
+        });
+      },
+      onOut: () => {
+        if (inviewAnimation) inviewAnimation.kill();
+        inviewAnimation = gsap.set(self, {
+          autoAlpha: 0,
+          y: -10,
+        });
+      },
+    });
 
-    // *** DEBUG
-    // const vo = createVisibilityObserver(self, { threshold: 0.5 });
-    // const visible = vo(() => self);
-
-    // createEffect(() => {
-    //   if (visible()) {
-    //     console.log("in view");
-    //   } else {
-    //     console.log("not in view");
-    //   }
-    // });
+    onOut(async () => {
+      await gsap.to(self, {
+        x: 10,
+        duration: 1.2,
+        ease: "slow.out",
+      });
+    });
   };
 
   return (

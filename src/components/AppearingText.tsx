@@ -1,6 +1,5 @@
-// import { createEffect, createSignal } from "solid-js";
 import gsap from "~/gsap";
-import { out } from "~/stores/animation";
+import { onOut } from "~/stores/animationStore";
 
 export default function AppearingText({ children }: { children: any }) {
   const animate = (self: any) => {
@@ -12,7 +11,7 @@ export default function AppearingText({ children }: { children: any }) {
       delay: 0.3,
     });
 
-    out(() => {
+    onOut(() => {
       gsap.to(self, {
         autoAlpha: 0,
         y: 80,
@@ -23,7 +22,7 @@ export default function AppearingText({ children }: { children: any }) {
   };
 
   return (
-    <p use:animate={self} class="px-gx py-gy ">
+    <p use:animate={self} class="px-gx py-gy">
       {children}
     </p>
   );
