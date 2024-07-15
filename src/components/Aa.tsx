@@ -14,17 +14,22 @@ export const Aa = ({
   const navigate = useNavigate();
   const location = useLocation();
 
+  // console.log("Aa", className);
+
   const handleClick = async (e: any) => {
     e.preventDefault();
     await animateOutAndTransition(to, el, navigate, location);
   };
 
   return (
-    <a ref={el} onClick={handleClick} href={to} class={`${className}`}>
+    <a
+      ref={el}
+      onClick={handleClick}
+      href={to}
+      class={className ? className + " inline-block" : "inline-block"}
+      // classList={className ? className + "inline-block" : "inline-block"}
+    >
       {children}
     </a>
-    // <a ref={el} onClick={handleClick} href={to} class={`${className}`}>
-    //   {children}
-    // </a>
   );
 };

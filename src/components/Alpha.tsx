@@ -9,7 +9,7 @@ export default function Alpha({
   class?: string;
 }) {
   return (
-    <div use:animateAlpha={self} class={`${className}`}>
+    <div use:animateAlpha={self} class={className ? className + "" : ""}>
       {children}
     </div>
   );

@@ -1,6 +1,6 @@
-// import { createEffect, createSignal } from "solid-js";
 import { onView, onOut } from "~/stores/animationStore";
 import gsap from "~/gsap";
+import { onCleanup, onMount } from "solid-js";
 
 export default function Observe({
   children,
@@ -13,6 +13,7 @@ export default function Observe({
     gsap.set(self, { autoAlpha: 0, y: -10 });
 
     let inviewAnimation: gsap.core.Tween | null = null;
+
     onView(self, {
       onIn: () => {
         inviewAnimation = gsap.to(self, {
@@ -34,7 +35,7 @@ export default function Observe({
 
     onOut(async () => {
       await gsap.to(self, {
-        x: 10,
+        x: 100,
         duration: 1.2,
         ease: "slow.out",
       });
@@ -42,7 +43,7 @@ export default function Observe({
   };
 
   return (
-    <div use:animate={self} class={`${className}`}>
+    <div use:animate={self} class={className ? className + "" : ""}>
       {children}
     </div>
   );

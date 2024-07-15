@@ -7,5 +7,5 @@ export default function Section({
   children: any;
   class?: string;
 }) {
-  return <section class={`py-gy ${className}`}>{children}</section>;
+  return <section class={className ? className + "" : ""}>{children}</section>;
 }

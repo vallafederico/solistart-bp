@@ -1,9 +1,9 @@
 import { Title } from "@solidjs/meta";
 import AppearingText from "~/components/AppearingText";
 import { Aa } from "~/components/Aa";
-import { animateAlpha } from "~/components/alpha.js";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
+import { animateAlpha } from "~/components/alpha.js";
 
 export default function About() {
   setLocationCallback();
@@ -13,7 +13,7 @@ export default function About() {
       <Title>About</Title>
       <AppearingText>About</AppearingText>
 
-      <Aa to="/">
+      <Aa class="px-gx" to="/">
         <p use:animateAlpha={self}>To Home Page</p>
       </Aa>
     </main>
