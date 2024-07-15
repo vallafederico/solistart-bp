@@ -1,15 +1,34 @@
 # SolidStart
 
-[Page Transitions](https://codesandbox.io/p/sandbox/solid-router-transitions-demo-b47ckq?file=%2Findex.html)
+#### Todos
 
-## Creating a project
+- [ ] make scroll track
+
+---
+
+## Features
 
 ```bash
 # ...
 ```
 
-## Features
-
 ### Animation
 
+```bash
+# ...
+```
+
 ### Controller
+
+```bash
+# ...
+```
+
+---
+
+### Ideas
+
+- [ ] make scroll, viewport/resize, raf part of the app
+
+    - single controller
+    - single initt
