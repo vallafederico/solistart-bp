@@ -1,25 +1,20 @@
 import { createEffect } from "solid-js";
 import { makeResizeObserver } from "@solid-primitives/resize-observer";
 
-import { Scroll } from "~/animation/scroll";
-import { Raf } from "~/animation/raf";
 import { App } from "~/gl/app";
 
 import { viewport, setViewport } from "~/stores/viewport";
 
 export function startApp() {
   createEffect(() => {
-    Scroll.init();
-    Raf.init();
-
     setViewport("size", {
       width: window.innerWidth,
       height: window.innerHeight,
     });
-    initResize();
-  });
 
-  App.initController();
+    initResize();
+    App.init();
+  });
 }
 
 /** -- Resize */

@@ -1,4 +1,4 @@
-import { Scroll } from "~/animation/scroll";
+import { Scroll } from "~/gl/scroll";
 import { createEffect, onCleanup, createUniqueId } from "solid-js";
 
 export function onScroll(fn) {

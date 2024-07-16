@@ -11,6 +11,8 @@ const [ctrl, setCtrl] = createStore({
   page: "home",
   state: "loading",
   to: null,
+  // app
+  init: false,
 });
 
 const setCtrlTransition = (to: string | null) => {
