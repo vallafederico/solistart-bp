@@ -30,14 +30,16 @@ export default function Home() {
         <Observe>Hello</Observe>
       </Section>
 
-      <Section class="flex-center h-[100vh] border px-gx">
-        <Track>Tracked</Track>
+      <Section>
+        <Track>
+          <div>Tracked</div>
+        </Track>
       </Section>
 
       <Section class="flex-center h-[100vh] px-gx">not tracked</Section>
-      <Section class="flex-center h-[100vh] border px-gx">
-        <Track>Tracked</Track>
-      </Section>
+      {/* <Section class="flex-center h-[100vh] border px-gx"> */}
+      {/* <Track>Tracked</Track> */}
+      {/* </Section> */}
 
       <Section class="flex-center h-[50vh] px-gx">not tracked</Section>
     </main>

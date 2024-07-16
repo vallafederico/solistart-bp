@@ -35,7 +35,7 @@ export default function Observe({
 
     onOut(async () => {
       await gsap.to(self, {
-        x: 100,
+        x: 1000,
         duration: 1.2,
         ease: "slow.out",
       });

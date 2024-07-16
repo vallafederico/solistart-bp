@@ -1,9 +1,8 @@
 import { createEffect } from "solid-js";
 import { makeResizeObserver } from "@solid-primitives/resize-observer";
+import { setViewport } from "~/stores/viewport";
 
 import { App } from "~/gl/app";
-
-import { viewport, setViewport } from "~/stores/viewport";
 
 export function startApp() {
   createEffect(() => {
@@ -18,9 +17,11 @@ export function startApp() {
 }
 
 /** -- Resize */
-const initResize = (ref = document.querySelector("body")) => {
+const initResize = (ref = document.body) => {
   const handleObserverCallback = (entries: ResizeObserverEntry[]) => {
-    const { width, height } = entries[0].contentRect;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
     App.onResize({ width, height });
     setViewport("size", { width, height });
   };

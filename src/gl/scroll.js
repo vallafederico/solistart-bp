@@ -15,6 +15,14 @@ export class Scroll {
     });
   }
 
+  static get scrollEventData() {
+    return {
+      velocity: this.lenis.velocity,
+      scroll: this.lenis.scroll,
+      direction: this.lenis.direction,
+    };
+  }
+
   static subscribe(sub, id) {
     if (!this.#subscribers.find(({ id: _id }) => _id === id))
       this.#subscribers.push({ sub, id });
