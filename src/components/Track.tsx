@@ -1,6 +1,5 @@
 import { createSignal } from "solid-js";
-import { onScroll, onTrack } from "~/animation/";
-import gsap from "~/gsap";
+import { onTrack } from "~/animation/";
 
 export default function Track({
   children,
@@ -19,7 +18,7 @@ export default function Track({
         setVal(value);
         self.style.transform = `scale(${1 + value}) translateY(${(-0.5 + value) * -50}vh)`;
       },
-      { lerp: 0.1 },
+      { lerp: false },
     );
   };
 
