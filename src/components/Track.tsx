@@ -1,7 +1,6 @@
-import { createEffect, createSignal } from "solid-js";
+import { createSignal } from "solid-js";
 import { onScroll, onTrack } from "~/animation/";
 import gsap from "~/gsap";
-import { viewport } from "~/stores/viewport";
 
 export default function Track({
   children,
@@ -27,10 +26,14 @@ export default function Track({
   return (
     <div
       ref={track}
-      class={className ? className + "" : "flex-center h-[100vh] border px-gx"}
+      class={
+        className
+          ? className + ""
+          : "flex-center relative h-[100vh] border px-gx"
+      }
     >
-      <div class="fixed top-gy">{val()}</div>
-      <div use:animate class="">
+      <div class="sticky top-gy">{val()}</div>
+      <div use:animate class="absolute">
         {children}
       </div>
     </div>
