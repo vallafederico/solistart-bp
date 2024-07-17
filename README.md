@@ -2,8 +2,6 @@
 
 #### Todos
 
-- [ ] make scroll track
-
 ---
 
 ## Features
