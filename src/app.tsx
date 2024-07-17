@@ -9,6 +9,7 @@ import Grid from "./components/Grid";
 
 import { startApp } from "./hooks/startApp";
 import { useLocationCallback } from "./hooks/useLocationCallback";
+import Canvas from "./components/Canvas";
 
 export default function App() {
   useLocationCallback();
@@ -22,6 +23,7 @@ export default function App() {
           <Nav />
           <Grid />
           <Suspense>{props.children}</Suspense>
+          <Canvas />
         </MetaProvider>
       )}
     >

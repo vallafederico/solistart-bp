@@ -1,7 +1,6 @@
 import { Title } from "@solidjs/meta";
 import Counter from "~/components/Counter";
 import Section from "~/components/Section";
-
 import { Aa } from "~/components/Aa";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
@@ -14,11 +13,11 @@ export default function Home() {
     <main class="min-h-[200vh] pt-20">
       <Title>Home</Title>
 
-      <Section>
+      <Section class="">
         <div use:animateAlpha class="flex flex-col items-start gap-10 px-gx">
           <Counter />
 
-          <Aa to="/about">To About Page</Aa>
+          <Aa to="/about">To About Page </Aa>
         </div>
       </Section>
     </main>
