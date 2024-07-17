@@ -5,6 +5,7 @@ import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 
 import { Nav } from "./components/Nav";
+import Grid from "./components/Grid";
 
 import { startApp } from "./hooks/startApp";
 import { useLocationCallback } from "./hooks/useLocationCallback";
@@ -19,7 +20,7 @@ export default function App() {
         <MetaProvider>
           <Title>SolidStart - Basic</Title>
           <Nav />
-
+          <Grid />
           <Suspense>{props.children}</Suspense>
         </MetaProvider>
       )}
