@@ -1,5 +1,4 @@
 import { Title } from "@solidjs/meta";
-
 import { Aa } from "~/components/Aa";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
@@ -13,7 +12,7 @@ export default function About() {
       <Title>About</Title>
 
       <Aa class="px-gx" to="/">
-        <p use:animateAlpha={self}>To Home Page</p>
+        <p use:animateAlpha>To Home Page</p>
       </Aa>
     </main>
   );

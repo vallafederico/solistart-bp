@@ -1,9 +1,9 @@
 import gsap from "~/gsap";
-import { onView, onOut } from "~/animation/";
+import { onIntersect, onPageLeave } from "~/animation/";
 
 export const animateAlpha = (self) => {
   let viewAnimation;
-  onView(self, {
+  onIntersect(self, {
     onIn: () => {
       viewAnimation = gsap.to(self, {
         autoAlpha: 1,
@@ -18,7 +18,7 @@ export const animateAlpha = (self) => {
     },
   });
 
-  onOut(async () => {
+  onPageLeave(async () => {
     gsap.to(self, {
       autoAlpha: 0,
       duration: 0.8,

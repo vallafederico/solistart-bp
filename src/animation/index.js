@@ -30,5 +30,5 @@ function reset() {
 
 /** exports */
 export { animateOutAndTransition, setOutTransition, outTransitions };
-export { onOut, onView } from "./lib/lifecycle";
+export { onPageLeave, onIntersect } from "./lib/lifecycle";
 export { onScroll, onTrack } from "./lib/scrolling";

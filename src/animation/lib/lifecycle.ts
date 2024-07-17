@@ -4,11 +4,11 @@ import { setOutTransition, outTransitions } from "../index";
 
 type Callback = ((duration?: number) => void) | (() => Promise<void>);
 
-export function onOut(fn: Callback) {
+export function onPageLeave(fn: Callback) {
   setOutTransition("elements", [...outTransitions.elements, fn]);
 }
 
-export function onView(
+export function onIntersect(
   ref: HTMLElement,
   { onIn = () => {}, onOut = () => {}, once = true, threshold = 0.2 } = {},
 ) {
