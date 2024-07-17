@@ -13,7 +13,7 @@ export class App {
     this.isinit = true;
     setWebgl({ alive: true });
 
-    Raf.subscribe(this.render.bind(this), "app");
+    // Raf.subscribe(this.render.bind(this), "app");
   }
 
   static init() {

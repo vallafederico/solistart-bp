@@ -1,11 +1,15 @@
-import { createEffect } from "solid-js";
+import { createEffect, onCleanup } from "solid-js";
 import { Gl } from "~/gl/gl";
 
 export default function Canvas() {
   const webgl = (self) => {
-    // createEffect(() => {
-    Gl.init(self);
-    // });
+    createEffect(() => {
+      Gl.init(self);
+    });
+
+    onCleanup(() => {
+      Gl.destroy();
+    });
   };
 
   return (
