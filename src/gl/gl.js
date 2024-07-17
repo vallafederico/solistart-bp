@@ -16,7 +16,7 @@ export class Gl {
   static mouse = { x: 0, y: 0, ex: 0, ey: 0 };
 
   static init(canvas) {
-    console.log("init gl", this.isinit);
+    // console.log("init gl", this.isinit);
     if (this.isinit) return;
     this.isinit = true;
 
@@ -88,7 +88,7 @@ export class Gl {
   }
 
   static destroy() {
-    console.log("destroy gl");
+    // console.log("destroy gl");
     this.isinit = false;
     Raf.unsubscribe("gl");
     Scroll.unsubscribe("gl");
