@@ -1,10 +1,9 @@
 import Lenis from "lenis";
 import gsap from "~/gsap";
 import { App } from "~/gl/app";
+import { Subscribable } from "~/utils/subscribable";
 
-export class Scroll {
-  static #subscribers = [];
-
+export class Scroll extends Subscribable {
   static init() {
     this.lenis = new Lenis();
 
@@ -23,19 +22,8 @@ export class Scroll {
     };
   }
 
-  static subscribe(sub, id) {
-    if (!this.#subscribers.find(({ id: _id }) => _id === id))
-      this.#subscribers.push({ sub, id });
-    // console.log("sub:", id, this.#subscribers);
-  }
-
-  static unsubscribe(id) {
-    this.#subscribers = this.#subscribers.filter(({ id: _id }) => _id !== id);
-    // console.log("unsub:", id, this.#subscribers);
-  }
-
   static onScroll({ velocity, scroll, direction }) {
-    this.#subscribers.forEach(({ sub }) => {
+    this.subscribers.forEach(({ sub }) => {
       sub({ velocity, scroll, direction });
     });
   }

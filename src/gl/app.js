@@ -3,9 +3,11 @@ import { ctrl, setCtrl } from "~/stores/controllerStore";
 
 import { Scroll } from "~/gl/scroll";
 import { Raf } from "~/gl/raf";
+import { Gl } from "./gl";
 
 export class App {
   static isinit = false;
+  static gl = Gl;
 
   static {
     this.isinit = true;

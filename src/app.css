@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  @apply box-border;
+}
+
 body {
   font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
     "Helvetica Neue", sans-serif;
 
-  @apply bg-black text-white;
+  @apply text-white bg-black;
 }
 
 .flex-center {

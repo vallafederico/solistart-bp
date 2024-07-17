@@ -21,20 +21,26 @@ importers:
         specifier: ^0.14.1
         version: 0.14.1(solid-js@1.8.18)
       '@solidjs/start':
-        specifier: ^1.0.4
-        version: 1.0.4(rollup@4.18.1)(solid-js@1.8.18)(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2))
+        specifier: ^1.0.5
+        version: 1.0.5(rollup@4.18.1)(solid-js@1.8.18)(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
       gsap:
         specifier: ^3.12.5
         version: 3.12.5
       lenis:
         specifier: ^1.1.6
         version: 1.1.6
+      ogl:
+        specifier: ^1.0.7
+        version: 1.0.7
       solid-js:
         specifier: ^1.8.18
         version: 1.8.18
       vinxi:
-        specifier: ^0.3.14
-        version: 0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2)
+        specifier: ^0.4.0
+        version: 0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3)
+      vite-plugin-glsl:
+        specifier: ^1.3.0
+        version: 1.3.0(rollup@4.18.1)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
     devDependencies:
       autoprefixer:
         specifier: ^10.4.19
@@ -49,8 +55,8 @@ importers:
         specifier: ^0.6.5
         version: 0.6.5(prettier@3.3.3)
       tailwindcss:
-        specifier: ^3.4.5
-        version: 3.4.5
+        specifier: ^3.4.6
+        version: 3.4.6
 
 packages:
 
@@ -77,8 +83,8 @@ packages:
     resolution: {integrity: sha512-5e3FI4Q3M3Pbr21+5xJwCv6ZT6KmGkI0vw3Tozy5ODAQFTIWe37iT8Cr7Ice2Ntb+M3iSKCEWMB1MBgKrW3whg==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/generator@7.24.9':
-    resolution: {integrity: sha512-G8v3jRg+z8IwY1jHFxvCNhOPYPterE4XljNgdGTYfSTtzzwjIswIzIaSPSLs3R7yFuqnqNeay5rjICfqVr+/6A==}
+  '@babel/generator@7.24.10':
+    resolution: {integrity: sha512-o9HBZL1G2129luEUlG1hB4N/nlYNWHnpwlND9eOMclRqqu1YDy2sSYVCFUZwl8I1Gxh+QSRrP2vD7EpUmFVXxg==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-compilation-targets@7.24.8':
@@ -816,8 +822,8 @@ packages:
     peerDependencies:
       solid-js: ^1.8.6
 
-  '@solidjs/start@1.0.4':
-    resolution: {integrity: sha512-r+2gENJ+nIdbLR2QcFxw92PBYLBr8a7DBHc1Wy2/eAbW9uIddPz/ZHyHsWjFewrADcvfjLGG+bBGqM/vCTrpAw==}
+  '@solidjs/start@1.0.5':
+    resolution: {integrity: sha512-tt1JCKBOoBz2owrSQIA5LCbgsolXcj/p43xMChMVt6MFF2MP4xwTmRZHuGCZ3wXODc11Ol8WBrPmn5argSd/LA==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -843,8 +849,8 @@ packages:
   '@types/micromatch@4.0.9':
     resolution: {integrity: sha512-7V+8ncr22h4UoYRLnLXSpTxjQrNUXtWHGeMPRJt1nULXI57G9bIcpyrHlmrQ7QK24EyyuXvYcSSWAM8GA9nqCg==}
 
-  '@types/node@20.14.10':
-    resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
+  '@types/node@20.14.11':
+    resolution: {integrity: sha512-kprQpL8MMeszbz6ojB5/tU8PLN4kesnN8Gjzw349rDlNgsSzg90lAVj3llK99Dh7JON+t9AuscPPFW6mPbTnSA==}
 
   '@types/resolve@1.20.2':
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -858,20 +864,20 @@ packages:
     resolution: {integrity: sha512-WSN1z931BtasZJlgPp704zJFnQFRg7yzSjkm3MzAWQYe4uXFXlFr1hc5Ac2zae5/HDOz5x1/zDM5Cb54vTCnWw==}
     hasBin: true
 
-  '@vinxi/plugin-directives@0.3.1':
-    resolution: {integrity: sha512-4qz5WifjmJ864VS8Ik9nUG0wAkt/xIcxFpP29RXogGLgccRnceBpWQi+ghw5rm0F6LP/YMAhhO5iFORXclWd0Q==}
+  '@vinxi/plugin-directives@0.4.1':
+    resolution: {integrity: sha512-NsHCDyqU00i4RKGBoNNcBuONEirg/XfGgPCLFK1CZw3AYBE19haFSgvuo21Bx+BFGcwdRU3BRtaBMvwjLrUCnw==}
     peerDependencies:
-      vinxi: ^0.3.10
+      vinxi: ^0.4.0
 
-  '@vinxi/server-components@0.3.3':
-    resolution: {integrity: sha512-xaW92nj9HUMLyswPcCmsIXOsS3TJll0m9u3WEjWjLrtZWheHggina6+kTCSeltp/Qe8WlUfNU5G02Xy8L4xQxA==}
+  '@vinxi/server-components@0.4.1':
+    resolution: {integrity: sha512-rMS+RCGr1tujO1xWgILMLpOWIyw2OwDO46EtkuhTfqaVgLLt/w7+hxzOnh4s3O9sXoKKuUswtj9/MpQQkFoMOQ==}
     peerDependencies:
-      vinxi: ^0.3.10
+      vinxi: ^0.4.0
 
-  '@vinxi/server-functions@0.3.3':
-    resolution: {integrity: sha512-yUrHov1gc+NM/YCEOekM1DCdu2tNSH1/j0mZPyIOhPZH/yAZKWA+t3dP79Q3g4QLDHchf6xf8z9u1INEADTlXw==}
+  '@vinxi/server-functions@0.4.1':
+    resolution: {integrity: sha512-dj5v9V+DurXK8w/nBDgJof+UsK3bkcgk6K/xBUg+WVmn7sUrLTurDTGRkCaknC6tQCyadNzj4FWGGc+qlrWf9g==}
     peerDependencies:
-      vinxi: ^0.3.12
+      vinxi: ^0.4.0
 
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
@@ -1306,8 +1312,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.4.827:
-    resolution: {integrity: sha512-VY+J0e4SFcNfQy19MEoMdaIcZLmDCprqvBtkii1WTCTQHpRvf5N8+3kTYCgL/PcntvwQvmMJWTuDPsq+IlhWKQ==}
+  electron-to-chromium@1.4.829:
+    resolution: {integrity: sha512-5qp1N2POAfW0u1qGAxXEtz6P7bO1m6gpZr5hdf5ve6lxpLM7MpiM4jIPz7xcrNlClQMafbyUDDWjlIQZ1Mw0Rw==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -1319,8 +1325,8 @@ packages:
     resolution: {integrity: sha512-TPJXq8JqFaVYm2CWmPvnP2Iyo4ZSM7/QKcSmuMLDObfpH5fi7RUGmd/rTDf+rut/saiDiQEeVTNgAmJEdAOx0w==}
     engines: {node: '>= 0.8'}
 
-  error-stack-parser-es@0.1.4:
-    resolution: {integrity: sha512-l0uy0kAoo6toCgVOYaAayqtPa2a1L15efxUMEnQebKwLQX2X0OpS6wMMQdc4juJXmxd9i40DuaUHq+mjIya9TQ==}
+  error-stack-parser-es@0.1.5:
+    resolution: {integrity: sha512-xHku1X40RO+fO8yJ8Wh2f2rZWVjqyhb1zgq1yZ8aZRQkv6OOKhKWRUaht3eSCUbAOBaKIgM+ykwFLE+QUxgGeg==}
 
   error-stack-parser@2.1.4:
     resolution: {integrity: sha512-Sk5V6wVazPhq5MhpO+AUxJn5x7XSXGl1R93Vn7i+zS15KDVxQijejNCrz8340/2bgLBjR9GtEG8ZVKONDjcqGQ==}
@@ -1902,8 +1908,8 @@ packages:
     resolution: {integrity: sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==}
     hasBin: true
 
-  node-releases@2.0.14:
-    resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
+  node-releases@2.0.17:
+    resolution: {integrity: sha512-Ww6ZlOiEQfPfXM45v17oabk77Z7mg5bOt7AjDyzy7RjK9OrLrLC8dyZQoAPEOtFX9SaNf1Tdvr5gRJWdTJj7GA==}
 
   nopt@5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
@@ -1945,6 +1951,9 @@ packages:
 
   ofetch@1.3.4:
     resolution: {integrity: sha512-KLIET85ik3vhEfS+3fDlc/BAZiAp+43QEC/yCo5zkNoY2YaKvNkOaFr/6wCFgFH1kuYQM5pMNi0Tg8koiIemtw==}
+
+  ogl@1.0.7:
+    resolution: {integrity: sha512-u6WBAdYcGntZvGWNz5A+Xol8kH0vYu8Ubqkw/JBDx4SUCe4Prwjarxe+BrGWypFh+BMiVJzUXgWZcv+dr1Od2Q==}
 
   ohash@1.1.3:
     resolution: {integrity: sha512-zuHHiGTYTA1sYJ/wZN+t5HKZaH23i4yI1HMwbuXm24Nid7Dv0KcuRlKoNKS9UNfAVSBlnGLcuQrnOKWOZoEGaw==}
@@ -2253,8 +2262,8 @@ packages:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
     hasBin: true
 
-  semver@7.6.2:
-    resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
+  semver@7.6.3:
+    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -2423,8 +2432,8 @@ packages:
     resolution: {integrity: sha512-ulAk51I9UVUyJgxlv9M6lFot2WP3e7t8Kz9+IS6D4rVba1tR9kON+Ey69f+1R4Q8cd45Lod6a4IcJIxnzGc/zA==}
     engines: {node: '>=18'}
 
-  tailwindcss@3.4.5:
-    resolution: {integrity: sha512-DlTxttYcogpDfx3tf/8jfnma1nfAYi2cBUYV2YNoPPecwmO3YGiFlOX9D8tGAu+EDF38ryBzvrDKU/BLMsUwbw==}
+  tailwindcss@3.4.6:
+    resolution: {integrity: sha512-1uRHzPB+Vzu57ocybfZ4jh5Q3SdlH7XW23J5sQoM9LhE9eIOlzxer/3XPSsycvih3rboRsvt0QCmzSrqyOYUIA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -2441,8 +2450,8 @@ packages:
     peerDependencies:
       solid-js: ^1.8
 
-  terser@5.31.2:
-    resolution: {integrity: sha512-LGyRZVFm/QElZHy/CPr/O4eNZOZIzsrQ92y4v9UJe/pFJjypje2yI3C2FmPtvUEnhadlSbmG2nXtdcjHOjCfxw==}
+  terser@5.31.3:
+    resolution: {integrity: sha512-pAfYn3NIZLyZpa83ZKigvj6Rn9c/vd5KfYGX7cN1mnzqgDcxWvrU5ZtAfIKhEXz9nRecw4z3LXkjaq96/qZqAA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -2496,8 +2505,8 @@ packages:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
     engines: {node: '>=14.16'}
 
-  ufo@1.5.3:
-    resolution: {integrity: sha512-Y7HYmWaFwPUmkoQCUIAYpKqkOf+SbVj/2fJJZ4RJMCfZp0rTGwRbzQD+HghfnhKOjL9E01okqz+ncJskGYfBNw==}
+  ufo@1.5.4:
+    resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
 
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
@@ -2515,15 +2524,15 @@ packages:
     resolution: {integrity: sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==}
     engines: {node: '>=14.0'}
 
-  unenv@1.9.0:
-    resolution: {integrity: sha512-QKnFNznRxmbOF1hDgzpqrlIf6NC5sbZ2OJ+5Wl3OX8uM+LUJXbj4TXvLJCtwbPTmbMHCLIz6JLKNinNsMShK9g==}
+  unenv@1.10.0:
+    resolution: {integrity: sha512-wY5bskBQFL9n3Eca5XnhH6KbUo/tfvkwm9OpcdCvLaeA7piBNbavbOKJySEwQ1V0RH6HvNlSAFRTpvTqgKRQXQ==}
 
   unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
 
-  unimport@3.7.2:
-    resolution: {integrity: sha512-91mxcZTadgXyj3lFWmrGT8GyoRHWuE5fqPOjg5RVtF6vj+OfM5G6WCzXjuYtSgELE5ggB34RY4oiCSEP8I3AHw==}
+  unimport@3.9.0:
+    resolution: {integrity: sha512-H2ftTISja1BonUVdOKRos6HC6dqYDR40dQTZY3zIDJ/5/z4ihncuL0LqLvtxYqUDMib41eAtunQUhXIWTCZ8rA==}
 
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
@@ -2606,9 +2615,15 @@ packages:
   validate-html-nesting@1.2.2:
     resolution: {integrity: sha512-hGdgQozCsQJMyfK5urgFcWEqsSSrK63Awe0t/IMR0bZ0QMtnuaiHzThW81guu3qx9abLi99NEuiaN6P9gVYsNg==}
 
-  vinxi@0.3.14:
-    resolution: {integrity: sha512-z92mH3xmnnsodTAURFnfEg4FnCo95JnjjY08nyjl3Z69xVRtQ5V6ckfV9bMp/5G6yT52wnmoLXAfPRPF6vfG+A==}
+  vinxi@0.4.0:
+    resolution: {integrity: sha512-NobNjqYGmSABBsmbRo6zyZQfltfZKjPnCj+XLcf1vewBHwAzs5nS1KUWGtc4UeA18dVKtgNbqpUeSOckD0EoBQ==}
     hasBin: true
+
+  vite-plugin-glsl@1.3.0:
+    resolution: {integrity: sha512-SzEoLet9Bp5VSozjrhUiSc3xX1+u7rCTjXAsq4qWM3u8UjilI76A9ucX/T+CRGQCe25j50GSY+9mKSGUVPET1w==}
+    engines: {node: '>= 16.15.1', npm: '>= 8.11.0'}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0
 
   vite-plugin-inspect@0.7.42:
     resolution: {integrity: sha512-JCyX86wr3siQc+p9Kd0t8VkFHAJag0RaQVIpdFGSv5FEaePEVB6+V/RGtz2dQkkGSXQzRWrPs4cU3dRKg32bXw==}
@@ -2630,8 +2645,8 @@ packages:
       '@testing-library/jest-dom':
         optional: true
 
-  vite@5.3.3:
-    resolution: {integrity: sha512-NPQdeCU0Dv2z5fu+ULotpuq5yfCS1BzKUIPhNbP3YBfAMGJXbt2nS+sbTFu+qchaqWTD+H3JK++nRwr6XIcp6A==}
+  vite@5.3.4:
+    resolution: {integrity: sha512-Cw+7zL3ZG9/NZBB8C+8QbQZmR54GwqIz+WMI4b3JgdYJvX+ny9AjJXqkGQlDXSXRP9rP0B4tbciRMOVEKulVOA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -2759,7 +2774,7 @@ snapshots:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.24.7
-      '@babel/generator': 7.24.9
+      '@babel/generator': 7.24.10
       '@babel/helper-compilation-targets': 7.24.8
       '@babel/helper-module-transforms': 7.24.9(@babel/core@7.24.9)
       '@babel/helpers': 7.24.8
@@ -2775,7 +2790,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/generator@7.24.9':
+  '@babel/generator@7.24.10':
     dependencies:
       '@babel/types': 7.24.9
       '@jridgewell/gen-mapping': 0.3.5
@@ -2879,7 +2894,7 @@ snapshots:
   '@babel/traverse@7.24.8':
     dependencies:
       '@babel/code-frame': 7.24.7
-      '@babel/generator': 7.24.9
+      '@babel/generator': 7.24.10
       '@babel/helper-environment-visitor': 7.24.7
       '@babel/helper-function-name': 7.24.7
       '@babel/helper-hoist-variables': 7.24.7
@@ -3092,7 +3107,7 @@ snapshots:
       nopt: 5.0.0
       npmlog: 5.0.1
       rimraf: 3.0.2
-      semver: 7.6.2
+      semver: 7.6.3
       tar: 6.2.1
     transitivePeerDependencies:
       - encoding
@@ -3245,7 +3260,7 @@ snapshots:
     dependencies:
       serialize-javascript: 6.0.2
       smob: 1.5.0
-      terser: 5.31.2
+      terser: 5.31.3
     optionalDependencies:
       rollup: 4.18.1
 
@@ -3352,11 +3367,11 @@ snapshots:
     dependencies:
       solid-js: 1.8.18
 
-  '@solidjs/start@1.0.4(rollup@4.18.1)(solid-js@1.8.18)(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2))':
+  '@solidjs/start@1.0.5(rollup@4.18.1)(solid-js@1.8.18)(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))':
     dependencies:
-      '@vinxi/plugin-directives': 0.3.1(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))
-      '@vinxi/server-components': 0.3.3(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))
-      '@vinxi/server-functions': 0.3.3(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))
+      '@vinxi/plugin-directives': 0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))
+      '@vinxi/server-components': 0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))
+      '@vinxi/server-functions': 0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))
       defu: 6.1.4
       error-stack-parser: 2.1.4
       glob: 10.4.5
@@ -3367,8 +3382,8 @@ snapshots:
       shikiji: 0.9.19
       source-map-js: 1.2.0
       terracotta: 1.0.5(solid-js@1.8.18)
-      vite-plugin-inspect: 0.7.42(rollup@4.18.1)(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2))
-      vite-plugin-solid: 2.10.2(solid-js@1.8.18)(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2))
+      vite-plugin-inspect: 0.7.42(rollup@4.18.1)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
+      vite-plugin-solid: 2.10.2(solid-js@1.8.18)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
     transitivePeerDependencies:
       - '@nuxt/kit'
       - '@testing-library/jest-dom'
@@ -3405,13 +3420,13 @@ snapshots:
 
   '@types/http-proxy@1.17.14':
     dependencies:
-      '@types/node': 20.14.10
+      '@types/node': 20.14.11
 
   '@types/micromatch@4.0.9':
     dependencies:
       '@types/braces': 3.0.4
 
-  '@types/node@20.14.10':
+  '@types/node@20.14.11':
     dependencies:
       undici-types: 5.26.5
 
@@ -3451,13 +3466,13 @@ snapshots:
       node-forge: 1.3.1
       pathe: 1.1.2
       std-env: 3.7.0
-      ufo: 1.5.3
+      ufo: 1.5.4
       untun: 0.1.3
       uqr: 0.1.2
     transitivePeerDependencies:
       - uWebSockets.js
 
-  '@vinxi/plugin-directives@0.3.1(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))':
+  '@vinxi/plugin-directives@0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))':
     dependencies:
       '@babel/parser': 7.24.8
       acorn: 8.12.1
@@ -3468,29 +3483,29 @@ snapshots:
       magicast: 0.2.11
       recast: 0.23.9
       tslib: 2.6.3
-      vinxi: 0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2)
+      vinxi: 0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3)
 
-  '@vinxi/server-components@0.3.3(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))':
+  '@vinxi/server-components@0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))':
     dependencies:
-      '@vinxi/plugin-directives': 0.3.1(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))
+      '@vinxi/plugin-directives': 0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))
       acorn: 8.12.1
       acorn-loose: 8.4.0
       acorn-typescript: 1.4.13(acorn@8.12.1)
       astring: 1.8.6
       magicast: 0.2.11
       recast: 0.23.9
-      vinxi: 0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2)
+      vinxi: 0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3)
 
-  '@vinxi/server-functions@0.3.3(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))':
+  '@vinxi/server-functions@0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))':
     dependencies:
-      '@vinxi/plugin-directives': 0.3.1(vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2))
+      '@vinxi/plugin-directives': 0.4.1(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))
       acorn: 8.12.1
       acorn-loose: 8.4.0
       acorn-typescript: 1.4.13(acorn@8.12.1)
       astring: 1.8.6
       magicast: 0.2.11
       recast: 0.23.9
-      vinxi: 0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2)
+      vinxi: 0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3)
 
   abbrev@1.1.1: {}
 
@@ -3662,8 +3677,8 @@ snapshots:
   browserslist@4.23.2:
     dependencies:
       caniuse-lite: 1.0.30001642
-      electron-to-chromium: 1.4.827
-      node-releases: 2.0.14
+      electron-to-chromium: 1.4.829
+      node-releases: 2.0.17
       update-browserslist-db: 1.1.0(browserslist@4.23.2)
 
   buffer-crc32@1.0.0: {}
@@ -3872,7 +3887,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.4.827: {}
+  electron-to-chromium@1.4.829: {}
 
   emoji-regex@8.0.0: {}
 
@@ -3880,7 +3895,7 @@ snapshots:
 
   encodeurl@1.0.2: {}
 
-  error-stack-parser-es@0.1.4: {}
+  error-stack-parser-es@0.1.5: {}
 
   error-stack-parser@2.1.4:
     dependencies:
@@ -4143,9 +4158,9 @@ snapshots:
       iron-webcrypto: 1.2.1
       ohash: 1.1.3
       radix3: 1.1.2
-      ufo: 1.5.3
+      ufo: 1.5.4
       uncrypto: 0.1.3
-      unenv: 1.9.0
+      unenv: 1.10.0
     transitivePeerDependencies:
       - uWebSockets.js
 
@@ -4158,9 +4173,9 @@ snapshots:
       iron-webcrypto: 1.2.1
       ohash: 1.1.3
       radix3: 1.1.2
-      ufo: 1.5.3
+      ufo: 1.5.4
       uncrypto: 0.1.3
-      unenv: 1.9.0
+      unenv: 1.10.0
     transitivePeerDependencies:
       - uWebSockets.js
 
@@ -4352,14 +4367,14 @@ snapshots:
       crossws: 0.2.4
       defu: 6.1.4
       get-port-please: 3.1.2
-      h3: 1.12.0
+      h3: 1.11.1
       http-shutdown: 1.2.2
       jiti: 1.21.6
       mlly: 1.7.1
       node-forge: 1.3.1
       pathe: 1.1.2
       std-env: 3.7.0
-      ufo: 1.5.3
+      ufo: 1.5.4
       untun: 0.1.3
       uqr: 0.1.2
     transitivePeerDependencies:
@@ -4451,7 +4466,7 @@ snapshots:
       acorn: 8.12.1
       pathe: 1.1.2
       pkg-types: 1.1.3
-      ufo: 1.5.3
+      ufo: 1.5.4
 
   mri@1.2.0: {}
 
@@ -4528,15 +4543,15 @@ snapshots:
       rollup: 4.18.1
       rollup-plugin-visualizer: 5.12.0(rollup@4.18.1)
       scule: 1.3.0
-      semver: 7.6.2
+      semver: 7.6.3
       serve-placeholder: 2.0.2
       serve-static: 1.15.0
       std-env: 3.7.0
-      ufo: 1.5.3
+      ufo: 1.5.4
       uncrypto: 0.1.3
       unctx: 2.3.1
-      unenv: 1.9.0
-      unimport: 3.7.2(rollup@4.18.1)
+      unenv: 1.10.0
+      unimport: 3.9.0(rollup@4.18.1)
       unstorage: 1.10.2(ioredis@5.4.1)
       unwasm: 0.3.9
     transitivePeerDependencies:
@@ -4572,7 +4587,7 @@ snapshots:
 
   node-gyp-build@4.8.1: {}
 
-  node-releases@2.0.14: {}
+  node-releases@2.0.17: {}
 
   nopt@5.0.0:
     dependencies:
@@ -4604,7 +4619,7 @@ snapshots:
       execa: 8.0.1
       pathe: 1.1.2
       pkg-types: 1.1.3
-      ufo: 1.5.3
+      ufo: 1.5.4
 
   object-assign@4.1.1: {}
 
@@ -4614,7 +4629,9 @@ snapshots:
     dependencies:
       destr: 2.0.3
       node-fetch-native: 1.6.4
-      ufo: 1.5.3
+      ufo: 1.5.4
+
+  ogl@1.0.7: {}
 
   ohash@1.1.3: {}
 
@@ -4876,7 +4893,7 @@ snapshots:
 
   semver@6.3.1: {}
 
-  semver@7.6.2: {}
+  semver@7.6.3: {}
 
   send@0.18.0:
     dependencies:
@@ -4959,7 +4976,7 @@ snapshots:
 
   solid-refresh@0.6.3(solid-js@1.8.18):
     dependencies:
-      '@babel/generator': 7.24.9
+      '@babel/generator': 7.24.10
       '@babel/helper-module-imports': 7.24.7
       '@babel/types': 7.24.9
       solid-js: 1.8.18
@@ -5053,7 +5070,7 @@ snapshots:
 
   system-architecture@0.1.0: {}
 
-  tailwindcss@3.4.5:
+  tailwindcss@3.4.6:
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -5100,7 +5117,7 @@ snapshots:
       solid-js: 1.8.18
       solid-use: 0.8.0(solid-js@1.8.18)
 
-  terser@5.31.2:
+  terser@5.31.3:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.12.1
@@ -5143,7 +5160,7 @@ snapshots:
 
   type-fest@3.13.1: {}
 
-  ufo@1.5.3: {}
+  ufo@1.5.4: {}
 
   uncrypto@0.1.3: {}
 
@@ -5162,7 +5179,7 @@ snapshots:
     dependencies:
       '@fastify/busboy': 2.1.1
 
-  unenv@1.9.0:
+  unenv@1.10.0:
     dependencies:
       consola: 3.2.3
       defu: 6.1.4
@@ -5172,7 +5189,7 @@ snapshots:
 
   unicorn-magic@0.1.0: {}
 
-  unimport@3.7.2(rollup@4.18.1):
+  unimport@3.9.0(rollup@4.18.1):
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
       acorn: 8.12.1
@@ -5210,7 +5227,7 @@ snapshots:
       mri: 1.2.0
       node-fetch-native: 1.6.4
       ofetch: 1.3.4
-      ufo: 1.5.3
+      ufo: 1.5.4
     optionalDependencies:
       ioredis: 5.4.1
     transitivePeerDependencies:
@@ -5247,7 +5264,7 @@ snapshots:
 
   validate-html-nesting@1.2.2: {}
 
-  vinxi@0.3.14(@types/node@20.14.10)(ioredis@5.4.1)(terser@5.31.2):
+  vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3):
     dependencies:
       '@babel/core': 7.24.9
       '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.24.9)
@@ -5277,11 +5294,11 @@ snapshots:
       resolve: 1.22.8
       serve-placeholder: 2.0.2
       serve-static: 1.15.0
-      ufo: 1.5.3
+      ufo: 1.5.4
       unctx: 2.3.1
-      unenv: 1.9.0
+      unenv: 1.10.0
       unstorage: 1.10.2(ioredis@5.4.1)
-      vite: 5.3.3(@types/node@20.14.10)(terser@5.31.2)
+      vite: 5.3.4(@types/node@20.14.11)(terser@5.31.3)
       zod: 3.23.8
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -5314,22 +5331,29 @@ snapshots:
       - uWebSockets.js
       - xml2js
 
-  vite-plugin-inspect@0.7.42(rollup@4.18.1)(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2)):
+  vite-plugin-glsl@1.3.0(rollup@4.18.1)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3)):
+    dependencies:
+      '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
+      vite: 5.3.4(@types/node@20.14.11)(terser@5.31.3)
+    transitivePeerDependencies:
+      - rollup
+
+  vite-plugin-inspect@0.7.42(rollup@4.18.1)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3)):
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
       debug: 4.3.5
-      error-stack-parser-es: 0.1.4
+      error-stack-parser-es: 0.1.5
       fs-extra: 11.2.0
       open: 9.1.0
       picocolors: 1.0.1
       sirv: 2.0.4
-      vite: 5.3.3(@types/node@20.14.10)(terser@5.31.2)
+      vite: 5.3.4(@types/node@20.14.11)(terser@5.31.3)
     transitivePeerDependencies:
       - rollup
       - supports-color
 
-  vite-plugin-solid@2.10.2(solid-js@1.8.18)(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2)):
+  vite-plugin-solid@2.10.2(solid-js@1.8.18)(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3)):
     dependencies:
       '@babel/core': 7.24.9
       '@types/babel__core': 7.20.5
@@ -5337,24 +5361,24 @@ snapshots:
       merge-anything: 5.1.7
       solid-js: 1.8.18
       solid-refresh: 0.6.3(solid-js@1.8.18)
-      vite: 5.3.3(@types/node@20.14.10)(terser@5.31.2)
-      vitefu: 0.2.5(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2))
+      vite: 5.3.4(@types/node@20.14.11)(terser@5.31.3)
+      vitefu: 0.2.5(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
     transitivePeerDependencies:
       - supports-color
 
-  vite@5.3.3(@types/node@20.14.10)(terser@5.31.2):
+  vite@5.3.4(@types/node@20.14.11)(terser@5.31.3):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.39
       rollup: 4.18.1
     optionalDependencies:
-      '@types/node': 20.14.10
+      '@types/node': 20.14.11
       fsevents: 2.3.3
-      terser: 5.31.2
+      terser: 5.31.3
 
-  vitefu@0.2.5(vite@5.3.3(@types/node@20.14.10)(terser@5.31.2)):
+  vitefu@0.2.5(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3)):
     optionalDependencies:
-      vite: 5.3.3(@types/node@20.14.10)(terser@5.31.2)
+      vite: 5.3.4(@types/node@20.14.11)(terser@5.31.3)
 
   webidl-conversions@3.0.1: {}
 
