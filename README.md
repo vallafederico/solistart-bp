@@ -3,10 +3,8 @@
 #### Todos
 
 - [x] make scroll track
-- [ ] slider component
-- [ ] webgl(s)
-  - [ ] ogl
-  - [ ] three
+- [ ] (ANIMATION) slider component
+- [ ] sanity integration
 
 ---
 
