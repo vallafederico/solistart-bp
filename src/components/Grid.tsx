@@ -1,17 +1,18 @@
-import { createEffect, createSignal } from "solid-js";
+import { createEffect, createSignal, onCleanup } from "solid-js";
 
 export default function Grid({}) {
   const num = Array.from({ length: 12 });
 
   const [visible, setVisible] = createSignal(false);
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "g") {
+      setVisible(!visible());
+    }
+  };
+
   createEffect(() => {
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "g") {
-        setVisible(!visible());
-        console.log("visible", visible());
-      }
-    });
+    document.addEventListener("keydown", handleKeyDown);
   });
 
   const styles =
