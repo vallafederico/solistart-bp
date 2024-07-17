@@ -2,10 +2,6 @@
 
 #### Todos
 
-- [x] make scroll track
-- [ ] (ANIMATION) slider component
-- [ ] sanity integration
-
 ---
 
 ## Features
