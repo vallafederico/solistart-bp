@@ -2,7 +2,11 @@
 
 #### Todos
 
-- [ ] make scroll track
+- [x] make scroll track
+- [ ] slider component
+- [ ] webgl(s)
+  - [ ] ogl
+  - [ ] three
 
 ---
 
