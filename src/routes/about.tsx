@@ -1,5 +1,5 @@
 import { Title } from "@solidjs/meta";
-import AppearingText from "~/components/AppearingText";
+
 import { Aa } from "~/components/Aa";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
@@ -11,7 +11,6 @@ export default function About() {
   return (
     <main class="h-[300vh] py-20">
       <Title>About</Title>
-      <AppearingText>About</AppearingText>
 
       <Aa class="px-gx" to="/">
         <p use:animateAlpha={self}>To Home Page</p>

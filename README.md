@@ -71,6 +71,17 @@ onTrack(track, {
 
 ```
 
+#### Arbitrary Event (WIP)
+
+When a store mutates.
+
+```js
+onStore(store, (value) => {
+  // animate based on store
+  // you're the one that does the if part
+});
+```
+
 ---
 
 ### Controller
