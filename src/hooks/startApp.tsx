@@ -2,7 +2,7 @@ import { createEffect } from "solid-js";
 import { makeResizeObserver } from "@solid-primitives/resize-observer";
 import { setViewport } from "~/stores/viewport";
 
-import { App } from "~/gl/app";
+import { App } from "~/app/app";
 
 export function startApp() {
   createEffect(() => {

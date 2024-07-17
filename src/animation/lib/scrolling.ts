@@ -1,5 +1,5 @@
-import { Scroll } from "~/gl/scroll";
-import { Raf } from "~/gl/raf";
+import { Scroll } from "~/app/scroll";
+import { Raf } from "~/app/raf";
 import {
   createEffect,
   onCleanup,

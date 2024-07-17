@@ -1,4 +1,4 @@
-import { Scroll } from "~/gl/scroll";
+import { Scroll } from "~/app/scroll";
 import { viewport } from "~/stores/viewport";
 
 export const clientRect = (element) => {

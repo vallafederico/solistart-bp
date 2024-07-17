@@ -1,8 +1,8 @@
 import { webgl, setWebgl } from "~/stores/webgl";
 import { ctrl, setCtrl } from "~/stores/controllerStore";
 
-import { Scroll } from "~/gl/scroll";
-import { Raf } from "~/gl/raf";
+import { Scroll } from "./scroll";
+import { Raf } from "./raf";
 import { Gl } from "./gl";
 
 export class App {

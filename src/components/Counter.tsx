@@ -1,5 +1,5 @@
 import { createEffect, createSignal } from "solid-js";
-import { App } from "../gl/app";
+import { App } from "../app/app";
 import { webgl, setWebgl } from "~/stores/webgl";
 
 export default function Counter() {

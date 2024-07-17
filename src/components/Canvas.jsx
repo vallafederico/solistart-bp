@@ -1,5 +1,5 @@
 import { createEffect, onCleanup } from "solid-js";
-import { Gl } from "~/gl/gl";
+import { Gl } from "~/app/gl";
 
 export default function Canvas() {
   const webgl = (self) => {

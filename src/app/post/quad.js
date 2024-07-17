@@ -1,5 +1,5 @@
 import { Gl } from "../gl";
-import { Mesh, Triangle, Program as P, Texture } from "ogl";
+import { Mesh, Triangle, Program as P } from "ogl";
 import fragment from "./fragment.frag";
 import vertex from "./vertex.vert";
 

@@ -1,6 +1,6 @@
 import Lenis from "lenis";
 import gsap from "~/gsap";
-import { App } from "~/gl/app";
+import { App } from "~/app/app";
 import { Subscribable } from "~/utils/subscribable";
 
 export class Scroll extends Subscribable {
