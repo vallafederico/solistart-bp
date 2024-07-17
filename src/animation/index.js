@@ -12,6 +12,7 @@ const [outTransitions, setOutTransition] = createStore({
   elements: [globalOut],
 });
 
+/** -- page transitions */
 async function animateOutAndTransition(to, el, navigate, location) {
   if (location.pathname === to) return;
   setCtrlTransition(to);

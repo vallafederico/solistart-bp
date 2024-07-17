@@ -1,9 +1,9 @@
 import gsap from "~/gsap";
 
-export const globalOut = async (duration = 0.5) =>
+export const globalOut = async () =>
   await gsap.to("main", {
     autoAlpha: 0,
     ease: "expo.out",
-    duration,
+    duration: 0.6,
     delay: 0.5,
   });

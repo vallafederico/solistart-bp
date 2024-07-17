@@ -2,15 +2,17 @@ import { createVisibilityObserver } from "@solid-primitives/intersection-observe
 import { createEffect } from "solid-js";
 import { setOutTransition, outTransitions } from "../index";
 
-export function onOut(fn) {
+type Callback = ((duration?: number) => void) | (() => Promise<void>);
+
+export function onOut(fn: Callback) {
   setOutTransition("elements", [...outTransitions.elements, fn]);
 }
 
 export function onView(
-  ref,
-  { onIn = () => {}, onOut = () => {}, once = true } = {},
+  ref: HTMLElement,
+  { onIn = () => {}, onOut = () => {}, once = true, threshold = 0.2 } = {},
 ) {
-  const vo = createVisibilityObserver({ threshold: 0.5 });
+  const vo = createVisibilityObserver({ threshold });
   const visible = vo(ref);
 
   createEffect(() => {

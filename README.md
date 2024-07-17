@@ -14,49 +14,64 @@
 
 ### Animation
 
+### Primitives
+
+#### Page Transition Events
+
+Use the `onPageLeave` inteface, takes a callback.
+Can be `async`. If async , will be triggered with all the other functions at the same time and executed in parallel. If not, will not contribute to the transition out page animation timing.
+
 ```js
-// animateExit()
-// animateView()
-// animateScroll()
-// animateTrack()
-
-// animated when transitioning out | can be async
-
-// onOut(() => {});
-// onExit(() => {});
-// onPageExit(() => {});
-// onPageLeave(() => {});
-onLeave(() => {});
-
-// animates based on viewport visibility
-
-onView(self, {
-  onIn: () => {},
-  onOut: () => {},
+onPageLeave(async () => {
+  // ... animate out function
 });
-
-onIntersect(self, {
-  onIn: () => {},
-  onOut: () => {},
-});
-
-onIntersect(self, {
-  onIn: () => {},
-  onOut: () => {},
-});
-
-// animates on scroll
-// passes {y, direction, speed}
-
-onScroll(() => {});
-
-// animates when track scrolls through viewport
-// passes a 0-1 value based on percentage
-// passes {y, direction, speed}
-
-onTrack(track, { top: "", bottom: "", range: [0, 1] }, (value) => {});
-// onTrack({ track, top: "", bottom: "", range: [0, 1] }, (value) => {});
 ```
+
+#### Viewport Intersection
+
+Triggers based on an intersection observer. Takes 2 callbacks and some optional params. Threshold is `IntersectionObserver` standard property (default is .2).
+
+```js
+
+onIntersect(self, {
+  onIn?: () => {},
+  onOut?: () => {},
+  threshold: 0.2,
+  // once: true, (WIP)
+});
+
+```
+
+#### Scroll Event
+
+Scroll based.
+Deal with it, probably should not be a primitive.
+Scroll is the Y pixel value, velocity is the delta, direction is either 1 or 0
+
+```js
+onScroll(({ scroll, velocity, direction }) => {
+  // your function
+});
+```
+
+#### Track Event
+
+Scroll based.
+Uses a 0 to 1 value based on how much the track is in the viewport.
+
+```js
+
+onTrack(track, {
+  top?: "bottom",
+  bottom?: "top",
+  lerp?: number | false;
+  },
+  (value) => {}
+  );
+
+```
+
+---
 
 ### Controller
 
