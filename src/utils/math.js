@@ -13,6 +13,16 @@ export function clamp(min, max, num) {
   return Math.min(Math.max(num, min), max);
 }
 
+// mod
+export function mod(value, x) {
+  return ((value % x) + x) % x;
+}
+
+export function symmetricMod(value, x) {
+  let modded = mod(value, 2 * x);
+  return modded >= x ? (modded -= 2 * x) : modded;
+}
+
 /** ------------ Angles **/
 export function radToDeg(r) {
   return (r * 180) / Math.PI;

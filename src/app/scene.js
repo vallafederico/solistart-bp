@@ -9,7 +9,7 @@ export class Scene extends Transform {
     super();
     this.gl = gl;
 
-    console.log("scene", ctrl); // start page
+    // console.log("scene", ctrl); // start page
     this.create();
   }
 

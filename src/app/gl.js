@@ -17,7 +17,7 @@ export class Gl {
 
   static init(canvas) {
     if (this.isinit) return;
-    this.isinit = true;
+    // this.isinit = true;
 
     this.vp = {
       canvas,
