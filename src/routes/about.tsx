@@ -9,8 +9,7 @@ export default function About() {
   return (
     <main class="min-h-[100vh] py-20">
       <Title>About</Title>
-      <div class="h-[200vh]"></div>
-      <div class="flex-center max-w-screen overflow-clip">
+      <div use:animateAlpha class="flex-center max-w-screen overflow-clip">
         <Slider class="" />
       </div>
     </main>

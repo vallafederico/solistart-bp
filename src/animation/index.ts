@@ -1,8 +1,5 @@
-import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
-import { createEffect } from "solid-js";
 import { setCtrlTransition } from "~/stores/controllerStore";
 import { createStore } from "solid-js/store";
-import gsap from "~/gsap";
 
 /** animations */
 import { globalOut } from "./global";
@@ -13,7 +10,12 @@ const [outTransitions, setOutTransition] = createStore({
 });
 
 /** -- page transitions */
-async function animateOutAndTransition(to, el, navigate, location) {
+async function animateOutAndTransition(
+  to: string,
+  el: HTMLAnchorElement,
+  navigate: any,
+  location: any,
+) {
   if (location.pathname === to) return;
   setCtrlTransition(to);
 
