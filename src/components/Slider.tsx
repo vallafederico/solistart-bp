@@ -1,18 +1,6 @@
-import { createUniqueId } from "solid-js";
-import { createEffect } from "solid-js";
-import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
+import { createSignal } from "solid-js";
 import { animateAlpha } from "~/animation/alpha";
-
-// (*) add config
-// set _snapMode(val = true) {
-//   this._snapping = val;
-// }
-
-// set _enabled(val = true) {
-//   this._isEnabled = val;
-// }
-
-import { onSlide, styles } from "~/animation/slide";
+import { useSlider, styles } from "~/animation/slider";
 
 export default function Slider({
   class: className = "",
@@ -23,16 +11,32 @@ export default function Slider({
   childClass?: string;
   children?: any;
 } = {}) {
-  // const id = createUniqueId();
-
   const animate = (self) => {
-    onSlide();
+    let [enable, setEnable] = createSignal(true);
+    let [mode, setMode] = createSignal(false);
+
+    // onSlide(self, {
+    //   onSlideChange: (i: number) => {
+    //     // console.log("slidechanged", i);
+    //   },
+    //   onSlideSettle: (i: number) => {
+    //     // console.log("slideSettled", i);
+    //   },
+    //   enable,
+    //   mode,
+    // });
+
+    useSlider(self);
+
+    // setTimeout(() => {
+    //   setMode(true);
+    // }, 3000);
   };
 
   const arr = Array.from({ length: 10 }, (v, i) => i);
 
   return (
-    <div use:animateAlpha use:animate class={className + styles.wrapper}>
+    <div use:animate class={className + styles.wrapper}>
       {children
         ? children
         : arr.map((item) => (

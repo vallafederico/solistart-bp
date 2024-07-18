@@ -1,42 +1,5 @@
-import { createEffect, createUniqueId, onCleanup } from "solid-js";
 import { Emitter } from "~/utils/emitter";
 import { mod, symmetricMod, lerp } from "~/utils/math";
-import { Raf } from "~/app/raf";
-
-const styles = {
-  wrapper: " flex min-h-[50vh] w-[50vw] max-w-[50vw] border border-dotted ",
-  children: " relative min-w-[35vw] shrink-0 border border-red-500 border-box ",
-};
-
-const onSlide = (fn) => {
-  // const id = createUniqueId();
-  // console.log({ id });
-};
-
-// const slide = (self, more) => {
-//   const id = more();
-//   let slider;
-
-//   createEffect(() => {
-//     slider = new Sli(self);
-
-//     Raf.subscribe(() => {
-//       slider.update();
-//     }, id);
-//   });
-
-//   onCleanup(() => {
-//     Raf.unsubscribe(id);
-//     slider.removeEvents();
-//   });
-// };
-
-export { styles, onSlide };
-
-/** ------------------------  */
-/** ------------------------  */
-/** ------------------------  */
-/** ------------------------  */
 
 const lerpOptions = [
   lerp,
@@ -57,7 +20,7 @@ const def = {
   settlingAmount: 0.0001,
 };
 
-class Sli {
+export class SliderApi {
   // params
   _center = true;
   _factor = 0.005;
@@ -114,10 +77,10 @@ class Sli {
 
     document.onkeydown = (e) => {
       if (e.key === "ArrowRight") {
-        console.log("right");
+        // console.log("right");
         this.slideTo(this.current - 1);
       } else if (e.key === "ArrowLeft") {
-        console.log("left");
+        // console.log("left");
         this.slideTo(this.current + 1);
       }
     };
@@ -161,6 +124,7 @@ class Sli {
     this.element.removeEventListener("pointerup", this.onUp.bind(this));
     this.element.removeEventListener("pointermove", this.onMove.bind(this));
     this.element.removeEventListener("pointerleave", this.onUp.bind(this));
+    document.onkeydown = null;
   }
 
   initParallax() {
@@ -290,9 +254,9 @@ class Sli {
     if (Math.abs(this.previousTarget - this.target) > def.settlingAmount) {
       this.emitter.emit("slide", this);
     } else {
-      // if (!this.settling) return;
-      // this.emitter.emit("settle", this);
-      // this.settling = false;
+      if (!this.settling) return;
+      this.emitter.emit("settle", this);
+      this.settling = false;
     }
 
     // this.update();
