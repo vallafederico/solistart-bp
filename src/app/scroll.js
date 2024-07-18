@@ -1,10 +1,9 @@
 import Lenis from "lenis";
 import gsap from "~/gsap";
 import { App } from "~/app/app";
-import { Subscribable } from "~/utils/subscribable";
 // import { lerp } from "~/utils/math";
 
-export class Scroll extends Subscribable {
+export class Scroll {
   static subscribers = [];
 
   static subscribe(sub, id) {

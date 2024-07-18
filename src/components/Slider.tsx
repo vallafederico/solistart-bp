@@ -1,6 +1,7 @@
 import { createUniqueId } from "solid-js";
 import { createEffect } from "solid-js";
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
+import { animateAlpha } from "~/animation/alpha";
 
 // (*) add config
 // set _snapMode(val = true) {
@@ -31,7 +32,7 @@ export default function Slider({
   const arr = Array.from({ length: 10 }, (v, i) => i);
 
   return (
-    <div use:animate class={className + styles.wrapper}>
+    <div use:animateAlpha use:animate class={className + styles.wrapper}>
       {children
         ? children
         : arr.map((item) => (

@@ -16,10 +16,10 @@ export default function Track({
     //   console.log(value);
     // });
     // onIntersect(self, {
-    //   onIn: () => {
+    //   onEnter: () => {
     //     console.log("in");
     //   },
-    //   onOut: () => {
+    //   onLeave: () => {
     //     console.log("out");
     //   },
     // });

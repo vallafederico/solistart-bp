@@ -40,8 +40,8 @@ Triggers based on an intersection observer. Takes 2 callbacks and some optional 
 ```js
 
 onIntersect(self, {
-  onIn?: () => {},
-  onOut?: () => {},
+  onEnter?: () => {},
+  onLeave?: () => {},
   threshold: 0.2,
   // once: true, (WIP)
 });

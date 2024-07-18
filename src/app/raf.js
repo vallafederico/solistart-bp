@@ -1,8 +1,7 @@
 import gsap from "~/gsap";
-import { Subscribable } from "~/utils/subscribable";
 
 // raf
-export class Raf extends Subscribable {
+export class Raf {
   static subscribers = [];
 
   static subscribe(sub, id) {

@@ -10,16 +10,16 @@ export function onPageLeave(fn: Callback) {
 
 export function onIntersect(
   ref: HTMLElement,
-  { onIn = () => {}, onOut = () => {}, once = true, threshold = 0.2 } = {},
+  { onEnter = () => {}, onLeave = () => {}, once = true, threshold = 0.2 } = {},
 ) {
   const vo = createVisibilityObserver({ threshold });
   const visible = vo(ref);
 
   createEffect(() => {
     if (visible()) {
-      if (onIn) onIn();
+      if (onEnter) onEnter();
     } else {
-      if (onOut) onOut();
+      if (onLeave) onLeave();
     }
   });
 }
