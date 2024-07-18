@@ -1,5 +1,4 @@
 import { createSignal } from "solid-js";
-import { animateAlpha } from "~/animation/alpha";
 import { useSlider, styles } from "~/animation/slider";
 
 export default function Slider({
@@ -12,8 +11,9 @@ export default function Slider({
   children?: any;
 } = {}) {
   const animate = (self) => {
-    let [enable, setEnable] = createSignal(true);
-    let [mode, setMode] = createSignal(false);
+    /** initialise with params */
+    // let [enable, setEnable] = createSignal(true);
+    // let [mode, setMode] = createSignal(false);
 
     // onSlide(self, {
     //   onSlideChange: (i: number) => {
@@ -26,6 +26,7 @@ export default function Slider({
     //   mode,
     // });
 
+    /** initialise with defaults */
     useSlider(self);
 
     // setTimeout(() => {

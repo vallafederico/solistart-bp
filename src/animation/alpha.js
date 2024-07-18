@@ -3,8 +3,9 @@ import { onIntersect, onPageLeave } from "~/animation/";
 
 export const animateAlpha = (self) => {
   let viewAnimation;
+
   onIntersect(self, {
-    onIn: () => {
+    onEnter: () => {
       viewAnimation = gsap.to(self, {
         autoAlpha: 1,
         duration: 0.8,
@@ -12,7 +13,7 @@ export const animateAlpha = (self) => {
         delay: 0.3,
       });
     },
-    onOut: () => {
+    onLeave: () => {
       if (viewAnimation) viewAnimation.kill();
       gsap.set(self, { autoAlpha: 0 });
     },

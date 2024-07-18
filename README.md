@@ -18,7 +18,7 @@
 # ...
 ```
 
-### Animation
+## Animation
 
 ### Primitives
 
@@ -82,10 +82,45 @@ onTrack(track, {
 When a store mutates.
 
 ```js
-onStore(store, (value) => {
-  // animate based on store
-  // you're the one that does the if part
+
+// initialise with no params or callbacks
+useSlider(self);
+
+// initialise with params
+let [enable, setEnable] = createSignal(true);
+let [mode, setMode] = createSignal(false);
+
+useSlider(self, {
+  onSlideChange: (i: number) => {
+    // console.log("slidechanged", i);
+  },
+  onSlideSettle: (i: number) => {
+    // console.log("slideSettled", i);
+  },
+  enable,
+  mode,
 });
+
+// you can use signals for changing the mode dynamically
+setMode(true); // changes from snappiung to not snapping
+setEnable(false); // stop the slider
+
+```
+
+### Components
+
+#### Slider
+
+```js
+
+onTrack(track, {
+  top?: "bottom",
+  bottom?: "top",
+  lerp?: number | false;
+  },
+  (value) => {}
+  );
+
 ```
 
 ---
