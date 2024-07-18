@@ -17,7 +17,7 @@ export class Scroll extends Subscribable {
   }
 
   static get scrollEventData() {
-    console.log(this.lenis.percentage);
+    // console.log(this.lenis.progress);
     return {
       velocity: this.lenis.velocity,
       scroll: this.lenis.scroll,

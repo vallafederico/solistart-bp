@@ -1,4 +1,6 @@
 import { createUniqueId } from "solid-js";
+import { createEffect } from "solid-js";
+import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
 
 // (*) add config
 // set _snapMode(val = true) {
@@ -9,7 +11,7 @@ import { createUniqueId } from "solid-js";
 //   this._isEnabled = val;
 // }
 
-import { slide, styles } from "~/animation/slide";
+import { onSlide, styles } from "~/animation/slide";
 
 export default function Slider({
   class: className = "",
@@ -20,12 +22,16 @@ export default function Slider({
   childClass?: string;
   children?: any;
 } = {}) {
-  const id = createUniqueId();
+  // const id = createUniqueId();
+
+  const animate = (self) => {
+    onSlide();
+  };
 
   const arr = Array.from({ length: 10 }, (v, i) => i);
 
   return (
-    <div use:slide={id} class={className + styles.wrapper}>
+    <div use:animate class={className + styles.wrapper}>
       {children
         ? children
         : arr.map((item) => (

@@ -1,4 +1,4 @@
-import { createEffect, onCleanup } from "solid-js";
+import { createEffect, createUniqueId, onCleanup } from "solid-js";
 import { Emitter } from "~/utils/emitter";
 import { mod, symmetricMod, lerp } from "~/utils/math";
 import { Raf } from "~/app/raf";
@@ -8,25 +8,30 @@ const styles = {
   children: " relative min-w-[35vw] shrink-0 border border-red-500 border-box ",
 };
 
-const slide = (self, more) => {
-  const id = more();
-  let slider;
-
-  createEffect(() => {
-    slider = new Sli(self);
-
-    Raf.subscribe(() => {
-      slider.update();
-    }, id);
-  });
-
-  onCleanup(() => {
-    Raf.unsubscribe(id);
-    slider.removeEvents();
-  });
+const onSlide = (fn) => {
+  // const id = createUniqueId();
+  // console.log({ id });
 };
 
-export { slide, styles };
+// const slide = (self, more) => {
+//   const id = more();
+//   let slider;
+
+//   createEffect(() => {
+//     slider = new Sli(self);
+
+//     Raf.subscribe(() => {
+//       slider.update();
+//     }, id);
+//   });
+
+//   onCleanup(() => {
+//     Raf.unsubscribe(id);
+//     slider.removeEvents();
+//   });
+// };
+
+export { styles, onSlide };
 
 /** ------------------------  */
 /** ------------------------  */

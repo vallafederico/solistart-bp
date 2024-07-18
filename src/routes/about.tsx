@@ -8,9 +8,9 @@ export default function About() {
   return (
     <main class="min-h-[100vh] py-20">
       <Title>About</Title>
-      {/* <div class="flex-center max-w-screen overflow-clip"> */}
-      {/* <Slider class="" /> */}
-      {/* </div> */}
+      <div class="flex-center max-w-screen overflow-clip">
+        <Slider class="" />
+      </div>
     </main>
   );
 }
