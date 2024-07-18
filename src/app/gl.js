@@ -1,5 +1,4 @@
 import { Renderer, Orbit, Vec3 } from "ogl";
-import { createEffect } from "solid-js";
 import { viewport } from "~/stores/viewport";
 import { Raf } from "./raf";
 
@@ -42,7 +41,9 @@ export class Gl {
 
     this.camera = new Camera(this.gl);
     this.post = new Post(this.gl);
+
     this.scene = new Scene(this.gl);
+
     this.controls = new Orbit(this.camera, {
       target: new Vec3(0, 0, 0),
       enabled: false,
@@ -55,6 +56,10 @@ export class Gl {
   static evts() {
     Raf.subscribe(this.update.bind(this), "gl");
     Scroll.subscribe(this.scroll.bind(this), "gl");
+
+    // createEffect(() => {
+    //   console.log(ctrl.page, ctrl.state, ctrl.to);
+    // });
 
     // keys
     document.addEventListener("keydown", (e) => {

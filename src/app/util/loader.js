@@ -1,6 +1,6 @@
-import { loadModel } from "./model-loader";
-import { loadTexture } from "./texture-loader";
-import { assets as file } from "../../assets";
+import { loadModel } from "./load-model";
+import { loadTexture } from "./load-texture";
+import { assets as file } from "../../../assets";
 
 export async function loadAssets(gl, opt = null) {
   const assets = opt || file;

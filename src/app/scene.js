@@ -1,5 +1,7 @@
 import { Transform, Box, Plane, Mesh, NormalProgram } from "ogl";
 import { Quad } from "./quad";
+import { ctrl } from "~/stores/controllerStore";
+import { loadAssets } from "./util/loader";
 // import { Screen } from "./screen";
 
 export class Scene extends Transform {
@@ -7,6 +9,7 @@ export class Scene extends Transform {
     super();
     this.gl = gl;
 
+    console.log("scene", ctrl); // start page
     this.create();
   }
 
