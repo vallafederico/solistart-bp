@@ -16,7 +16,6 @@ export class Gl {
   static mouse = { x: 0, y: 0, ex: 0, ey: 0 };
 
   static init(canvas) {
-    // console.log("init gl", this.isinit);
     if (this.isinit) return;
     this.isinit = true;
 
