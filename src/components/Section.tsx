@@ -1,5 +1,3 @@
-// import { createEffect, createSignal } from "solid-js";
-
 export default function Section({
   children,
   class: className,

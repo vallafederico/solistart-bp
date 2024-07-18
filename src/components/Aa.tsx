@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "@solidjs/router";
 import { animateOutAndTransition } from "~/animation/";
 
-export const Aa = ({
+export default function Aa({
   children,
   to,
   class: className,
@@ -9,12 +9,10 @@ export const Aa = ({
   children: any;
   to: string;
   class?: string;
-}) => {
+}) {
   let el!: HTMLAnchorElement;
   const navigate = useNavigate();
   const location = useLocation();
-
-  // console.log("Aa", className);
 
   const handleClick = async (e: any) => {
     e.preventDefault();
@@ -27,9 +25,8 @@ export const Aa = ({
       onClick={handleClick}
       href={to}
       class={className ? className + " inline-block" : "inline-block"}
-      // classList={className ? className + "inline-block" : "inline-block"}
     >
       {children}
     </a>
   );
-};
+}

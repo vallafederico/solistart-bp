@@ -1,7 +1,5 @@
-import { createEffect } from "solid-js";
-import { onScroll, onTrack, onIntersect } from "~/animation/";
+import { onScroll, onTrack, onIntersect, onPageLeave } from "~/animation/";
 import gsap from "~/gsap";
-import { viewport } from "~/stores/viewport";
 
 export default function Track({
   children,
@@ -12,9 +10,11 @@ export default function Track({
 }) {
   let track: any;
   const animate = (self: any) => {
-    // onScroll((value: any) => {
-    //   console.log(value);
+    /** -- Router Lifecycle */
+    // onPageLeave(async () => {
+    //   await gsap.to(self, { opacity: 0, duration: 0.5 });
     // });
+    /** -- Intersection Based */
     // onIntersect(self, {
     //   onEnter: () => {
     //     console.log("in");
@@ -23,14 +23,16 @@ export default function Track({
     //     console.log("out");
     //   },
     // });
-    // onTrack(track, (value: any) => {
+    /** -- Scroll Based */
+    // onScroll((value: any) => {
     //   console.log(value);
     // });
+    /** -- Scroll Track Based */
+    // onTrack(track, (value: any) => {
+    // console.log(value);
+    // self.style.transform = `translateX(${value * 1000}px)`;
+    // });
   };
-
-  createEffect(() => {
-    // console.log(viewport.size.width);
-  });
 
   return (
     <div ref={track} class={className ? className + "" : ""}>

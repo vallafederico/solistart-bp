@@ -40,6 +40,8 @@ export const useSlider = (
       Raf.unsubscribe(id);
       slider.removeEvents();
     });
+
+    slider.resize();
   });
 
   createEffect(() => {

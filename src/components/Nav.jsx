@@ -1,9 +1,11 @@
-import { Aa } from "./Aa";
+import Aa from "./Aa";
 
 export const Nav = () => {
   return (
     <nav class="fixed left-0 top-0 z-[100] flex w-screen items-center justify-between px-gx py-2">
-      <p>LOGO</p>
+      <Aa to="/">
+        <p>LOGO</p>
+      </Aa>
 
       <ul class="flex justify-between">
         <li>
@@ -14,6 +16,11 @@ export const Nav = () => {
         <li>
           <Aa to="/about" class="px-3">
             About
+          </Aa>
+        </li>
+        <li>
+          <Aa to="/lib" class="px-3">
+            Lib
           </Aa>
         </li>
       </ul>

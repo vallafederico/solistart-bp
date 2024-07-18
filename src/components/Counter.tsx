@@ -7,7 +7,6 @@ export default function Counter() {
 
   createEffect(() => {
     App.stateChange(count());
-
     // console.log("webgl alive (store)", webgl.alive);
   });
 
