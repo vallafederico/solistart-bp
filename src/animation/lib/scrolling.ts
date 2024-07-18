@@ -80,7 +80,7 @@ export function onTrack(
   } = {},
 ): void {
   const id = createUniqueId();
-  const subscriber = lerp !== false ? Raf : Scroll;
+  const subscriber = lerp === false ? Scroll : Raf;
   let lerped = 0;
 
   const vo = createVisibilityObserver({ threshold: 0 });
@@ -91,6 +91,7 @@ export function onTrack(
 
     const execute = (scroll = Scroll.scrollEventData) => {
       if (!visible()) return;
+
       let val = clamp(
         0,
         1,
