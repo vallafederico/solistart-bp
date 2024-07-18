@@ -2,7 +2,7 @@ import Aa from "./Aa";
 
 export const Nav = () => {
   return (
-    <nav class="fixed left-0 top-0 z-[100] flex w-screen items-center justify-between px-gx py-2">
+    <nav class="fixed left-0 top-0 z-[100] flex w-screen items-center justify-between px-gx py-4">
       <Aa to="/">
         <p>LOGO</p>
       </Aa>
