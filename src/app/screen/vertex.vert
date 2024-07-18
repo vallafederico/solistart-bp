@@ -1,5 +1,4 @@
-#define MPI 3.1415926538
-#define MTAU 6.28318530718
+#include '../glsl/math.glsl';
 
 attribute vec2 uv;
 attribute vec2 position;

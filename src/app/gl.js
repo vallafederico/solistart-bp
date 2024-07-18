@@ -3,6 +3,7 @@ import { createEffect } from "solid-js";
 import { viewport } from "~/stores/viewport";
 import { Raf } from "./raf";
 
+import { Post } from "./post";
 import { Camera } from "./util/camera";
 import { Scene } from "./scene";
 import { Scroll } from "./scroll";
@@ -40,6 +41,7 @@ export class Gl {
     this.gl.clearColor(...params.clearColor);
 
     this.camera = new Camera(this.gl);
+    this.post = new Post(this.gl);
     this.scene = new Scene(this.gl);
     this.controls = new Orbit(this.camera, {
       target: new Vec3(0, 0, 0),
@@ -51,7 +53,6 @@ export class Gl {
   }
 
   static evts() {
-    createEffect(() => this.resize(viewport));
     Raf.subscribe(this.update.bind(this), "gl");
     Scroll.subscribe(this.scroll.bind(this), "gl");
 
@@ -62,13 +63,15 @@ export class Gl {
   }
 
   static resize({ size }) {
-    this.vp.w = size.width;
-    this.vp.h = size.height;
-    this.vp.vs = this.camera.viewSize;
+    queueMicrotask(() => {
+      this.vp.w = size.width;
+      this.vp.h = size.height;
+      this.vp.vs = this.camera.viewSize;
 
-    this.renderer.setSize(this.vp.w, this.vp.h);
-    this.camera.resize();
-    this.scene?.resize();
+      this.renderer.setSize(this.vp.w, this.vp.h);
+      this.camera.resize();
+      this.scene.resize();
+    });
   }
 
   static scroll() {
@@ -81,10 +84,14 @@ export class Gl {
     this.controls?.update();
     this.scene?.update(time);
 
-    this.renderer.render({
-      scene: this.scene,
-      camera: this.camera,
-    });
+    if (this.post && this.post.isActive) {
+      this.post.renderPost(time);
+    } else {
+      this.renderer.render({
+        scene: this.scene,
+        camera: this.camera,
+      });
+    }
   }
 
   static destroy() {

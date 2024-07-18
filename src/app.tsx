@@ -7,7 +7,7 @@ import { Suspense } from "solid-js";
 import { Nav } from "./components/Nav";
 import Grid from "./components/Grid";
 
-import { startApp } from "./hooks/startApp";
+import { startApp } from "./hooks/useApp";
 import { useLocationCallback } from "./hooks/useLocationCallback";
 import Canvas from "./components/Canvas";
 

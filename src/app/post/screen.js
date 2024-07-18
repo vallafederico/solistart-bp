@@ -4,26 +4,28 @@ import fragment from "./fragment.frag";
 import vertex from "./vertex.vert";
 
 export class Screen extends Mesh {
-  constructor() {
+  constructor(texture) {
     super(Gl.gl, {
       geometry: new Triangle(Gl.gl),
-      program: new Program(),
+      program: new Program(texture),
     });
   }
 
-  resize() {}
+  // resize() {}
   scroll() {}
-  update() {}
+  update(t) {
+    this.program.time = t;
+  }
 }
 
 class Program extends P {
-  constructor({ uniforms } = {}) {
+  constructor(texture) {
     super(Gl.gl, {
       vertex,
       fragment,
       uniforms: {
-        ...uniforms,
         u_time: { value: 0 },
+        u_texture: { value: texture },
       },
       transparent: true,
       cullFace: null,
@@ -31,6 +33,6 @@ class Program extends P {
   }
 
   set time(t) {
-    this.uniforms.time.value = t;
+    this.uniforms.u_time.value = t;
   }
 }

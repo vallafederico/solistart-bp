@@ -1,45 +1,46 @@
 import { RenderTarget } from "ogl";
 import { Screen } from "./screen.js";
+import { Gl } from "../gl.js";
 
-export default class {
+export class Post {
+  isActive = true;
+
+  get size() {
+    return {
+      width: Gl.vp.w * Gl.vp.dpr(),
+      height: Gl.vp.h * Gl.vp.dpr(),
+    };
+  }
+
   constructor(gl) {
     this.gl = gl;
-    this.isActive = true;
 
-    this.rt = new RenderTarget(this.gl, {});
-    this.quad = new Screen(this.gl);
-    this.quad.program.texture = this.rt.texture;
+    this.rt = new RenderTarget(Gl.gl, this.size);
+    this.screen = new Screen(this.rt.texture);
   }
 
-  resize(vp) {
-    this.vp = vp;
-
-    this.rt = new RenderTarget(this.gl, {});
-    this.quad.resize(vp);
+  resize() {
+    this.rt = new RenderTarget(Gl.gl, this.size);
+    // this.quad.resize();
   }
 
-  render(t) {
-    // this.quad.program.texture = this.rt.texture;
-    this.quad.render(t);
+  #render(t) {
+    if (!this.isActive) return;
+    this.screen.update(t);
+  }
+
+  renderPost(t) {
+    Gl.renderer.render({
+      scene: Gl.scene,
+      camera: Gl.camera,
+      target: this.rt,
+    });
+
+    this.#render(t);
+
+    Gl.renderer.render({
+      scene: this.screen,
+      camera: Gl.camera,
+    });
   }
 }
-
-/*
-  renderPost(t) {
-    // 1. render scene to rt
-    this.renderer.render({
-      scene: this.scene,
-      camera: this.camera,
-      target: this.post.rt,
-    });
-
-    // 2. move time in post
-    this.post.render(t);
-
-    // 3. render post to quad
-    this.renderer.render({
-      scene: this.post.quad,
-      camera: this.camera,
-    });
-  }
-*/

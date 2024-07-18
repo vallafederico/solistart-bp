@@ -4,6 +4,7 @@ import { ctrl, setCtrl } from "~/stores/controllerStore";
 import { Scroll } from "./scroll";
 import { Raf } from "./raf";
 import { Gl } from "./gl";
+import { viewport } from "~/stores/viewport";
 
 export class App {
   static isinit = false;
@@ -12,7 +13,6 @@ export class App {
   static {
     this.isinit = true;
     setWebgl({ alive: true });
-
     // Raf.subscribe(this.render.bind(this), "app");
   }
 
@@ -34,6 +34,7 @@ export class App {
   /** -- Lifecycle */
   static onResize(data) {
     // console.log("app:resize", data);
+    Gl.resize(viewport);
   }
 
   static render() {
