@@ -23,12 +23,18 @@ importers:
       '@solidjs/start':
         specifier: ^1.0.5
         version: 1.0.5(rollup@4.18.1)(solid-js@1.8.18)(vinxi@0.4.0(@types/node@20.14.11)(ioredis@5.4.1)(terser@5.31.3))(vite@5.3.4(@types/node@20.14.11)(terser@5.31.3))
+      classix:
+        specifier: ^2.1.38
+        version: 2.1.38
       gsap:
         specifier: ^3.12.5
         version: 3.12.5
       lenis:
         specifier: ^1.1.6
         version: 1.1.6
+      lil-gui:
+        specifier: ^0.19.2
+        version: 0.19.2
       ogl:
         specifier: ^1.0.7
         version: 1.0.7
@@ -1103,6 +1109,9 @@ packages:
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
 
+  classix@2.1.38:
+    resolution: {integrity: sha512-vl59khsZzN4cFpEC+K05kz3ArSQUJuIOKppR/8979wkC4vWGiKR7nuvD396tiViGrcztk4W6/9VlgV+tqVrGgw==}
+
   cli-boxes@3.0.0:
     resolution: {integrity: sha512-/lzGpEWL/8PfI0BmBOPRwp0c/wFNX1RdUML3jK/RcSBA9T8mZDdQpqYBKtCFTOfQbwPqWEOpjqW+Fnayc0969g==}
     engines: {node: '>=10'}
@@ -1732,6 +1741,9 @@ packages:
         optional: true
       react-dom:
         optional: true
+
+  lil-gui@0.19.2:
+    resolution: {integrity: sha512-nU8j4ND702ouGfQZoaTN4dfXxacvGOAVK0DtmZBVcUYUAeYQXLQAjAN50igMHiba3T5jZyKEjXZU+Ntm1Qs6ZQ==}
 
   lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
@@ -3743,6 +3755,8 @@ snapshots:
     dependencies:
       consola: 3.2.3
 
+  classix@2.1.38: {}
+
   cli-boxes@3.0.0: {}
 
   clipboardy@4.0.0:
@@ -4350,6 +4364,8 @@ snapshots:
   lenis@1.1.6:
     dependencies:
       '@darkroom.engineering/tempus': 0.0.46
+
+  lil-gui@0.19.2: {}
 
   lilconfig@2.1.0: {}
 

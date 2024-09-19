@@ -2,7 +2,7 @@ import { Transform, Box, Plane, Mesh, NormalProgram } from "ogl";
 import { Quad } from "./quad";
 import { ctrl } from "~/stores/controllerStore";
 import { loadAssets } from "./util/loader";
-// import { Screen } from "./screen";
+// import { FsQuad } from "./fsquad";
 
 export class Scene extends Transform {
   constructor(gl) {
@@ -17,8 +17,8 @@ export class Scene extends Transform {
     this.quad = new Quad();
     this.quad.setParent(this);
 
-    // this.screen = new Screen(this.gl);
-    // this.screen.setParent(this);
+    // this.fsquad = new FsQuad(this.gl);
+    // this.fsquad.setParent(this);
   }
 
   resize() {

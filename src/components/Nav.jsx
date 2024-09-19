@@ -23,6 +23,16 @@ export const Nav = () => {
             Lib
           </Aa>
         </li>
+        <li>
+          <Aa to="/data-loading" class="px-3">
+            Data Loading
+          </Aa>
+        </li>
+        <li>
+          <Aa to="/protected" class="px-3">
+            Protected
+          </Aa>
+        </li>
       </ul>
     </nav>
   );

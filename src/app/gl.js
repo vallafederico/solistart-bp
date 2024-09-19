@@ -1,4 +1,7 @@
+// import { Device } from "./util/device";
+import { Gui } from "./util/gui";
 import { Renderer, Orbit, Vec3 } from "ogl";
+
 import { viewport } from "~/stores/viewport";
 import { Raf } from "./raf";
 
@@ -13,7 +16,7 @@ export const params = {
 
 export class Gl {
   static isinit = false;
-  static mouse = { x: 0, y: 0, ex: 0, ey: 0 };
+  static mouse = { x: 0, y: 0, ex: 0, ey: 0, speed: 0, espeed: 0 };
 
   static init(canvas) {
     if (this.isinit) return;
@@ -41,6 +44,8 @@ export class Gl {
     this.camera = new Camera(this.gl);
     this.post = new Post(this.gl);
 
+    manager(this);
+
     this.scene = new Scene(this.gl);
 
     this.controls = new Orbit(this.camera, {
@@ -59,11 +64,6 @@ export class Gl {
     // createEffect(() => {
     //   console.log(ctrl.page, ctrl.state, ctrl.to);
     // });
-
-    // keys
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "o") this.controls.enabled = !this.controls.enabled;
-    });
   }
 
   static resize({ size }) {
@@ -84,6 +84,7 @@ export class Gl {
 
   static update(time) {
     if (!this.isinit) return;
+    // Device.monitorWebgl();
 
     this.controls?.update();
     this.scene?.update(time);
@@ -99,9 +100,23 @@ export class Gl {
   }
 
   static destroy() {
-    // console.log("destroy gl");
     this.isinit = false;
     Raf.unsubscribe("gl");
     Scroll.unsubscribe("gl");
   }
+}
+
+// manager
+function manager(ctrl) {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === " ") {
+      ctrl.paused = !ctrl.paused;
+    } else if (e.key === "o") {
+      ctrl.controls.enabled = !ctrl.controls.enabled;
+    } else if (e.key === "g") {
+      Gui.show();
+    } else if (e.key === "p") {
+      Gl.paused = !Gl.paused;
+    }
+  });
 }

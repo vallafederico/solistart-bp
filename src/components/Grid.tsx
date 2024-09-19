@@ -6,7 +6,9 @@ export default function Grid({}) {
   const [visible, setVisible] = createSignal(false);
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "g") {
+    if (!e.shiftKey) return;
+
+    if (e.key === "G") {
       setVisible(!visible());
     }
   };

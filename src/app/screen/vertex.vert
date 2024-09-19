@@ -1,12 +1,20 @@
-#include '../glsl/math.glsl';
 
+#define MPI 3.1415926535897932384626433832795
+// precision mediump float;
+
+attribute vec3 position;
 attribute vec2 uv;
-attribute vec2 position;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+uniform mat3 normalMatrix;
+
+uniform float u_time;
+
 varying vec2 v_uv;
 
 void main() {
-  vec2 pos = position;
-
-  gl_Position = vec4(pos, 0, 1);
-  v_uv = uv;
+    vec3 pos = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+    v_uv = uv;
 }
