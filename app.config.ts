@@ -1,4 +1,5 @@
 import { defineConfig } from "@solidjs/start/config";
+import solidSvg from "vite-plugin-solid-svg";
 import glsl from "vite-plugin-glsl";
 
 const plugins = [
@@ -10,6 +11,9 @@ const plugins = [
     compress: false,
     watch: true,
     root: "/",
+  }),
+  solidSvg({
+    defaultAsComponent: true,
   }),
 ];
 

@@ -1,7 +1,7 @@
 import { webgl, setWebgl } from "~/stores/webgl";
 import { ctrl, setCtrl } from "~/stores/controllerStore";
 
-import { Scroll } from "./scroll";
+import { Scroll } from "../scroll";
 import { Raf } from "./raf";
 import { Gl } from "./gl";
 import { viewport } from "~/stores/viewport";

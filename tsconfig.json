@@ -13,8 +13,8 @@
     "types": ["vinxi/types/client", "vite-plugin-glsl/ext"],
     "isolatedModules": true,
     "paths": {
-      "~/*": ["./src/*"],
-      "@gl/*": ["./src/gl/*"]
+      "~/*": ["./src/*"]
+      // "@gl/*": ["./src/gl/*"]
     }
   }
 }

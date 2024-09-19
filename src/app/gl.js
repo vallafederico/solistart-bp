@@ -8,7 +8,7 @@ import { Raf } from "./raf";
 import { Post } from "./post";
 import { Camera } from "./util/camera";
 import { Scene } from "./scene";
-import { Scroll } from "./scroll";
+import { Scroll } from "../scroll";
 
 export const params = {
   clearColor: [0, 0, 0, 1],
@@ -71,10 +71,13 @@ export class Gl {
       this.vp.w = size.width;
       this.vp.h = size.height;
       this.vp.vs = this.camera.viewSize;
+      this.vp.px = this.camera.px;
 
       this.renderer.setSize(this.vp.w, this.vp.h);
       this.camera.resize();
       this.scene.resize();
+
+      // console.log(this.vp);
     });
   }
 
