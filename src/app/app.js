@@ -3,8 +3,10 @@ import { ctrl, setCtrl } from "~/stores/controllerStore";
 
 import { Scroll } from "../scroll";
 import { Raf } from "./raf";
-import { Gl } from "~/gl/gl";
-import { viewport } from "~/stores/viewport";
+// import { Gl } from "~/gl/gl";
+// import { viewport } from "~/stores/viewport";
+
+// (*) can this be made obsolete by interdependencies ?
 
 export class App {
   static isinit = false;
