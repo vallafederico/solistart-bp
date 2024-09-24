@@ -17,13 +17,7 @@ import vertexShader from "./vertex.vert";
 
 import sim1 from "./sim.frag";
 
-function addVariable(gpu, name, frag, { texture, uniforms = {} }) {
-  const variable = gpu.addVariable(name, frag, texture || gpu.createTexture());
-  gpu.setVariableDependencies(variable, [variable]);
-  Object.assign(variable.material.uniforms, uniforms);
-
-  return variable;
-}
+// (*) learn about MRT
 
 const CUT = 0.5;
 
@@ -114,4 +108,14 @@ class Material extends RawShaderMaterial {
   set time(t) {
     this.uniforms.u_time.value = t;
   }
+}
+
+// -- utils
+
+function addVariable(gpu, name, frag, { texture, uniforms = {} }) {
+  const variable = gpu.addVariable(name, frag, texture || gpu.createTexture());
+  gpu.setVariableDependencies(variable, [variable]);
+  Object.assign(variable.material.uniforms, uniforms);
+
+  return variable;
 }

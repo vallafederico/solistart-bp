@@ -9,7 +9,7 @@ import { useMouseSpeed } from "./utils/mouseSpeed";
 
 import { Scene } from "./scene";
 import { Post } from "./post/post";
-// import { Screen } from "./screen";
+import { Screen } from "./screen";
 import { Scroll } from "~/scroll";
 
 export const params = {
@@ -79,7 +79,7 @@ export class Gl {
 
   static async init() {
     this.scene = new Scene();
-    // this.screen = new Screen();
+    this.screen = new Screen();
     this.post = new Post();
 
     gsap.ticker.add(this.render.bind(this));

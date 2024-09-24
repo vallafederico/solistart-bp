@@ -10,7 +10,7 @@ uniform sampler2D u_previous;
 const float DECAY = .99; // .99
 const float SPEED_MULT = .5; // .5
 const float NOISE_POW = 0.03; // 0.02
-const float MAIN_FLOW = 0.001; // 0.005
+const float MAIN_FLOW = 0.0; // 0.005
 const float DIFFUSION_RATE = 0.03; // .03
 const vec2 INTERACTION_SIZE = vec2(0.01, 0.3); // 0.05, 0.2
 const vec4 MOUSE_COLOR = vec4(1.0, 0., 0.0, 1.0); // 1.0, 0., 0.0, 1.0
