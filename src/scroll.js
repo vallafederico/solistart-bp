@@ -9,6 +9,8 @@ export class Scroll {
   static subscribe(sub, id) {
     if (!this.subscribers.find(({ id: _id }) => _id === id))
       this.subscribers.push({ sub, id });
+
+    return () => this.unsubscribe(id);
   }
 
   static unsubscribe(id) {
@@ -36,9 +38,9 @@ export class Scroll {
     };
   }
 
-  static onScroll({ velocity, scroll, direction }) {
+  static onScroll({ velocity, scroll, direction, progress }) {
     this.subscribers.forEach(({ sub }) => {
-      sub({ velocity, scroll, direction });
+      sub({ velocity, scroll, direction, progress });
     });
   }
 }

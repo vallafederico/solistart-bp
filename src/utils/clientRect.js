@@ -20,3 +20,5 @@ export const clientRect = (element) => {
     // centerx: bounds.left + bounds.width / 2, // check if correct
   };
 };
+
+// (*) make glRect function

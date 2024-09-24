@@ -1,8 +1,11 @@
-import { loadModel } from "./load-model";
-import { loadTexture } from "./load-texture";
-import { assets as file } from "../../../assets";
+import loadModel from "./model-loader";
+import loadTexture from "./texture-loader";
+import { assets as file } from "../assets";
 
-export async function loadAssets(gl, opt = null) {
+// (*) test loader
+
+export async function loadAssets(opt = null) {
+  console.time("assets::"); // !1 remove timer from here
   const assets = opt || file;
 
   const promises = [];
@@ -14,14 +17,14 @@ export async function loadAssets(gl, opt = null) {
     const extension = asset.split(".").pop();
 
     if (extension === "glb" || extension === "gltf") {
-      promises.push(loadModel(gl, asset));
+      promises.push(loadModel(asset));
     } else if (
       extension === "jpg" ||
       extension === "png" ||
       extension === "webp" ||
       extension === "jpeg"
     ) {
-      promises.push(loadTexture(gl, asset));
+      promises.push(loadTexture(asset));
     }
 
     names.push(key);
@@ -34,7 +37,7 @@ export async function loadAssets(gl, opt = null) {
     return acc;
   }, {});
 
-  // console.timeEnd("assets::");
+  console.timeEnd("assets::");
 
   return result;
 }

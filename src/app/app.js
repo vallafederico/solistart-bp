@@ -3,12 +3,11 @@ import { ctrl, setCtrl } from "~/stores/controllerStore";
 
 import { Scroll } from "../scroll";
 import { Raf } from "./raf";
-import { Gl } from "./gl";
+import { Gl } from "~/gl/gl";
 import { viewport } from "~/stores/viewport";
 
 export class App {
   static isinit = false;
-  static gl = Gl;
 
   static {
     this.isinit = true;
@@ -34,7 +33,7 @@ export class App {
   /** -- Lifecycle */
   static onResize(data) {
     // console.log("app:resize", data);
-    Gl.resize(viewport);
+    // Gl.resize(viewport);
   }
 
   static render() {

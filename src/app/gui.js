@@ -15,22 +15,22 @@ const config = {
 };
 
 // localstorage utils
-if (isClient) {
-  const utilsObj = {
-    save: () => {
-      const store = JSON.stringify(Gui);
-      localStorage.setItem(guiKey, store);
-    },
-    clear: () => {
-      localStorage.removeItem(guiKey);
-    },
-  };
+// if (isClient) {
+//   const utilsObj = {
+//     save: () => {
+//       const store = JSON.stringify(Gui);
+//       localStorage.setItem(guiKey, store);
+//     },
+//     clear: () => {
+//       localStorage.removeItem(guiKey);
+//     },
+//   };
 
-  const store = g.addFolder("***");
-  store.add(utilsObj, "save");
-  store.add(utilsObj, "clear");
-  g.close();
-}
+//   const store = g.addFolder("***");
+//   store.add(utilsObj, "save");
+//   store.add(utilsObj, "clear");
+//   g.close();
+// }
 
 const createObservableObject = (obj) => {
   return new Proxy(obj, {
@@ -100,8 +100,6 @@ export const Gui = createObservableObject({});
 
 Gui.show = () => {
   if (!isClient) return;
-
-  // console.log(guiHidden);
 
   if (guiHidden) {
     g.show();
