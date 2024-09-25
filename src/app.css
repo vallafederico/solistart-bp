@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "soh";
+  src: url("/fonts/Sohne-Buch-webh.woff2") format("woff2");
+
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "soh";
+  src: url("/fonts/Sohne-Halbfett-webh.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 html,
 body {
   overscroll-behavior: none;
@@ -35,10 +52,7 @@ h4 {
 }
 
 body {
-  font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
-
-  @apply bg-black text-white;
+  @apply font-sans text-white bg-black;
 }
 
 .flex-center {

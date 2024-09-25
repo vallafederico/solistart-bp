@@ -7,6 +7,8 @@ import { setLocationCallback } from "~/hooks/useLocationCallback";
 import { animateAlpha } from "~/animation/alpha.js";
 import Track from "~/components/Track";
 
+import Node from "~/gl/node/Node";
+
 export default function Home() {
   setLocationCallback();
 
@@ -15,6 +17,7 @@ export default function Home() {
       <Title>Home</Title>
       <Section class="px-gx">
         <h1 use:animateAlpha>Home</h1>
+        {/* <Node /> */}
       </Section>
     </main>
   );

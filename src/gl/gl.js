@@ -66,6 +66,7 @@ export class Gl {
 
     queueMicrotask(() => this.init());
     this.evt = this._evt();
+    Resizer.init(this.vp.container);
   }
 
   static _evt() {
@@ -148,7 +149,10 @@ export class Gl {
 
   static get pixel() {
     // (*) make pixel calculation
-    return 1;
+    const px = this.viewSize.w / this.vp.w;
+    const py = this.viewSize.h / this.vp.h;
+
+    return (px + py) / 2;
   }
 }
 
@@ -174,6 +178,38 @@ function manager(ctrl) {
 }
 
 // -- evts
+export class Resizer {
+  static subscribers = [];
+  static observer;
+
+  static init(container, callback = null) {
+    // console.log("init resizer", this.subscribers);
+    this.observer = new ResizeObserver((entry) => {
+      this.subscribers.forEach((sub) => {
+        sub.cb(entry[0].contentRect);
+      });
+    });
+
+    if (callback) this.subscribers.push({ cb: callback, id: "init" });
+
+    this.observer.observe(container);
+    return this.dispose;
+  }
+
+  static dispose() {
+    this.observer.disconnect();
+  }
+
+  static subscribe(cb, id = Symbol()) {
+    this.subscribers.push({ cb, id });
+    return id;
+  }
+
+  static unsubscribe(id) {
+    this.subscribers = this.subscribers.filter((sub) => sub.id !== id);
+  }
+}
+
 function handleResize(container, cb) {
   const ro = new ResizeObserver((entry) => cb(entry[0].contentRect));
   ro.observe(container);

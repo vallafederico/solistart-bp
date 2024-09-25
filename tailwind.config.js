@@ -7,6 +7,9 @@ const grid = {
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ["soh", "sans-serif"],
+    },
     extend: {
       spacing: {
         gx: "5vw",

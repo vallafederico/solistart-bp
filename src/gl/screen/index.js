@@ -1,4 +1,5 @@
 import { Gl } from "../gl";
+// import { Gui } from "~/app/gui";
 
 import {
   Scene,
@@ -68,6 +69,7 @@ export class Screen extends Scene {
   }
 
   render(t) {
+    // console.time("render");
     this.plane.material.time = t;
 
     this.sim1.material.uniforms.u_previous.value = this._sim1;
@@ -88,6 +90,7 @@ export class Screen extends Scene {
       Gl.renderer.render(this, this.camera);
       Gl.renderer.setRenderTarget(null);
     }
+    // console.timeEnd("render");
   }
 }
 

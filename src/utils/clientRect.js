@@ -1,3 +1,4 @@
+import { Gl } from "~/gl/gl";
 import { Scroll } from "~/scroll";
 import { viewport } from "~/stores/viewport";
 
@@ -16,9 +17,19 @@ export const clientRect = (element) => {
     wh: viewport.size.height,
     ww: viewport.size.width,
     offset: bounds.top + scroll,
-    // centery: bounds.top + scroll + bounds.height / 2, // check if correct
-    // centerx: bounds.left + bounds.width / 2, // check if correct
   };
 };
 
-// (*) make glRect function
+// (*) check the scroll part
+
+export const clientRectGl = (element) => {
+  const bounds = clientRect(element);
+
+  bounds.centerx = -Gl.vp.w / 2 + bounds.left + bounds.width / 2;
+  bounds.centery = Gl.vp.h / 2 - bounds.top - bounds.height / 2;
+
+  for (const [key, value] of Object.entries(bounds))
+    bounds[key] = value * Gl.vp.px;
+
+  return bounds;
+};
