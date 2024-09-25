@@ -1,37 +1,33 @@
 // https://protectwise.github.io/troika/troika-three-text/
 
-import { Mesh, PlaneGeometry, RawShaderMaterial, DoubleSide } from "three";
+import { Color, Mesh, PlaneGeometry, ShaderMaterial, DoubleSide } from "three";
 import { Text as TroikaText } from "troika-three-text";
 import { createDerivedMaterial } from "troika-three-utils";
 
 import vertexShader from "./vertex.vert";
 import fragmentShader from "./fragment.frag";
 
-const size = 1;
-const res = 1;
-
-// // Create:
-// const myText = new Text()
-// myScene.add(myText)
-
-// // Set properties to configure:
-// myText.text = 'Hello world!'
-// myText.fontSize = 0.2
-// myText.position.z = -2
-// myText.color = 0x9966FF
-
-// // Update the rendering:
-// myText.sync()
+// (*) find a way to use with shader / use derived material
 
 export class Text extends TroikaText {
-  text = "Hello World";
   fontSize = 0.1;
+  maxWidth = 1;
+  font = "/fonts/Sohne-Buch-webh.woff";
+  anchorX = "center";
+  anchorY = "middle";
+
+  text =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
   // material = new Material();
 
   constructor() {
     super();
-    this.sync();
+    this.sync(() => {
+      // if (this.textRenderInfo && this.textRenderInfo.sdfTexture) {
+      //   this.material.uniforms.uTexture.value = this.textRenderInfo.sdfTexture;
+      // }
+    });
 
     // console.log(this.material);
   }
@@ -41,14 +37,17 @@ export class Text extends TroikaText {
   }
 }
 
-class Material extends RawShaderMaterial {
+class Material extends ShaderMaterial {
   constructor(options) {
     super({
       vertexShader,
       fragmentShader,
       uniforms: {
-        u_time: { value: options?.u_time || 0 },
-        u_t1: { value: options?.u_t1 || null },
+        uTexture: { value: null },
+        uColor: { value: new Color(0xffffff) },
+        uOpacity: { value: 1.0 },
+        uThreshold: { value: 0.5 },
+        uSmoothing: { value: 0.01 },
       },
       side: DoubleSide,
       wireframe: false,
@@ -59,23 +58,4 @@ class Material extends RawShaderMaterial {
   set time(t) {
     this.uniforms.u_time.value = t;
   }
-}
-
-// -- utils
-
-function findGroup(obj) {
-  if (obj.isGroup === true) {
-    return obj;
-  }
-
-  for (const key in obj) {
-    if (typeof obj[key] === "object") {
-      const result = findGroup(obj[key]);
-      if (result) {
-        return result;
-      }
-    }
-  }
-
-  return null;
 }
