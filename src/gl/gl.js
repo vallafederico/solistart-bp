@@ -66,15 +66,14 @@ export class Gl {
 
     queueMicrotask(() => this.init());
     this.evt = this._evt();
-    Resizer.init(this.vp.container);
   }
 
   static _evt() {
     return [
       handleMouseMove(document.body, this.onMouseMove.bind(this)),
-      handleResize(this.vp.container, this.resize.bind(this)),
       Scroll.subscribe(this.onScroll.bind(this), "gl"),
       manager(this),
+      Resizer.init(this.vp.container, this.resize.bind(this)),
     ];
   }
 
@@ -89,6 +88,7 @@ export class Gl {
   static render() {
     if (this.paused) return;
     Device.monitorWebgl();
+
     this.time += 0.05;
 
     this.mouse.ex = lerp(this.mouse.ex, this.mouse.x, 0.1);
@@ -148,7 +148,6 @@ export class Gl {
   }
 
   static get pixel() {
-    // (*) make pixel calculation
     const px = this.viewSize.w / this.vp.w;
     const py = this.viewSize.h / this.vp.h;
 
@@ -193,7 +192,7 @@ export class Resizer {
     if (callback) this.subscribers.push({ cb: callback, id: "init" });
 
     this.observer.observe(container);
-    return this.dispose;
+    return this.dispose.bind(this);
   }
 
   static dispose() {
@@ -210,13 +209,13 @@ export class Resizer {
   }
 }
 
-function handleResize(container, cb) {
-  const ro = new ResizeObserver((entry) => cb(entry[0].contentRect));
-  ro.observe(container);
-  return () => {
-    ro.disconnect();
-  };
-}
+// function handleResize(container, cb) {
+//   const ro = new ResizeObserver((entry) => cb(entry[0].contentRect));
+//   ro.observe(container);
+//   return () => {
+//     ro.disconnect();
+//   };
+// }
 
 const { calculateMouseSpeed } = useMouseSpeed();
 function handleMouseMove(e, cb) {

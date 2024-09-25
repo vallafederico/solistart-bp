@@ -13,6 +13,7 @@ export default function About() {
 
       <Section class="px-gx">
         <h1 use:animateAlpha>About</h1>
+        <div class="flex-center w-full">{/* <Node /> */}</div>
       </Section>
     </main>
   );

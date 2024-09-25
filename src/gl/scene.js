@@ -12,14 +12,18 @@ export class Scene extends S {
   constructor() {
     super();
 
-    // this.quad = new Node();
-    // this.add(this.quad);
+    this.quad = new Quad();
+    this.add(this.quad);
 
     // this.text = new Text();
     // this.add(this.text);
 
     // this.instance = new Instance();
     // this.add(this.instance);
+
+    setTimeout(() => {
+      console.log(this.children);
+    }, 1);
   }
 
   async load() {}
@@ -34,8 +38,6 @@ export class Scene extends S {
     // });
   }
 }
-
-// (*) FIX text class with troika
 
 // (*) prevent recreation if one with same id already exists
 export function createWebGlNode(

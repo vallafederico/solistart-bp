@@ -47,6 +47,9 @@ export class Node extends Mesh {
 
   dispose() {
     Resizer.unsubscribe(this.#id);
+    this.parent.remove(this);
+    this.geometry.dispose();
+    this.material.dispose();
   }
 }
 

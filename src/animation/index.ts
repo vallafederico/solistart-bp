@@ -19,6 +19,8 @@ async function animateOutAndTransition(
   if (location.pathname === to) return;
   setCtrlTransition(to);
 
+  // (*) you might want to play those ONLY if in view
+
   await Promise.all(outTransitions.elements.map(async (fn) => await fn()));
   navigate(el.pathname);
   reset();
