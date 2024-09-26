@@ -1,6 +1,4 @@
 import { Mesh, PlaneGeometry, RawShaderMaterial, DoubleSide } from "three";
-import { createWebGlNode } from "../scene";
-import { onMount, onCleanup } from "solid-js";
 import { Resizer } from "../gl";
 import { Scroll } from "~/scroll";
 import { clientRectGl } from "~/utils/clientRect";
@@ -12,25 +10,12 @@ import fragmentShader from "./fragment.frag";
 const size = 1;
 const res = 1;
 
-export function webglNode(self) {
-  let item;
-
-  onMount(() => {
-    queueMicrotask(() => {
-      item = createWebGlNode(self);
-    });
-  });
-
-  onCleanup(() => {
-    if (item) item.dispose();
-  });
-}
-
+// (*) should be made smarter
 // (*) should probably be a group ??
 
 export class Node extends Mesh {
   #id = Resizer.subscribe(this.#resize.bind(this));
-  #scrollUnsub = Scroll.subscribe(this.#scroll.bind(this));
+  #scrollUnsub = Scroll.subscribe(this.#scroll.bind(this), Symbol("node"));
 
   geometry = new PlaneGeometry(size, size, res, res);
   material = new Material();
@@ -47,7 +32,6 @@ export class Node extends Mesh {
   }
 
   #resize() {
-    // console.log("resize", this.item);
     const rect = clientRectGl(this.item);
     this.#ctrl.x = this.position.x = rect.centerx;
     this.#ctrl.y = rect.centery;
@@ -57,6 +41,7 @@ export class Node extends Mesh {
   }
 
   #scroll({ velocity, scroll, direction, progress }) {
+    // (*) [OPTIM] this calculation should be done only once and not in every component
     this.position.y = this.#ctrl.y + scroll * Gl.vp.px;
   }
 

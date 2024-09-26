@@ -18,8 +18,9 @@ export default function Home() {
       <Section class="h-[80vh] px-gx">
         <h1 use:animateAlpha>Home</h1>
       </Section>
-      <Section class="h-screen px-gx">
-        <Node />
+      <Section class="flex h-screen px-gx">
+        <Node>hello</Node>
+        <Node>hello</Node>
       </Section>
     </main>
   );

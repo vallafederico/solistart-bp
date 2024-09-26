@@ -1,6 +1,7 @@
 import Lenis from "lenis";
 import gsap from "~/gsap";
-import { App } from "~/app/app";
+
+import { Gl } from "./gl/gl";
 
 // (*) restructure in a smarter way
 export class Scroll {
@@ -31,6 +32,7 @@ export class Scroll {
 
     this.lenis.on("scroll", ({ velocity, scroll, direction, progress }) => {
       this.y = scroll;
+
       this.onScroll({ velocity, scroll, direction, progress });
     });
   }

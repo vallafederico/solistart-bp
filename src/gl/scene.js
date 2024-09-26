@@ -12,8 +12,8 @@ export class Scene extends S {
   constructor() {
     super();
 
-    this.quad = new Quad();
-    this.add(this.quad);
+    // this.quad = new Quad();
+    // this.add(this.quad);
 
     // this.text = new Text();
     // this.add(this.text);
