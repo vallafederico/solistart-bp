@@ -12,8 +12,8 @@ export class Scene extends S {
   constructor() {
     super();
 
-    // this.quad = new Quad();
-    // this.add(this.quad);
+    this.quad = new Quad();
+    this.add(this.quad);
 
     // this.text = new Text();
     // this.add(this.text);
@@ -40,7 +40,9 @@ export class Scene extends S {
 }
 
 // (*) prevent recreation if one with same id already exists
-export function createWebGlNode(self, webglNode = Node, attachTo = Gl.scene) {
+export function createWebGlNode(self, webglNode, attachTo = Gl.scene) {
+  if (!webglNode) return;
+
   const it = new webglNode(self);
   attachTo.add(it);
   return it;

@@ -1,18 +1,19 @@
 import { createWebGlNode } from "../scene";
 import { onMount, onCleanup } from "solid-js";
+import { Node as Nd } from ".";
 
 export default function Node({ children }: { children?: any }) {
-  let webglelement: any;
+  let glEl: any;
 
   const webgl = (self: HTMLElement) => {
     onMount(() => {
       queueMicrotask(() => {
-        webglelement = createWebGlNode(self);
+        glEl = createWebGlNode(self, Nd);
       });
     });
 
     onCleanup(() => {
-      if (webglelement) webglelement.dispose();
+      if (glEl) glEl.dispose();
     });
   };
 
