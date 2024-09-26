@@ -1,5 +1,5 @@
-import { webgl, setWebgl } from "~/stores/webgl";
-import { ctrl, setCtrl } from "~/stores/controllerStore";
+// import { webgl, setWebgl } from "~/stores/webgl";
+// import { ctrl, setCtrl } from "~/stores/controllerStore";
 
 import { Scroll } from "../scroll";
 import { Raf } from "./raf";
@@ -13,17 +13,15 @@ export class App {
 
   static {
     this.isinit = true;
-    setWebgl({ alive: true });
+    // setWebgl({ alive: true });
     // Raf.subscribe(this.render.bind(this), "app");
   }
 
   static init() {
     // * this is reactive
-    Scroll.init();
-    Raf.init();
-
-    setCtrl("init", true);
-
+    // Scroll.init();
+    // Raf.init();
+    // setCtrl("init", true);
     // console.log("app controller", ctrl.state);
   }
 

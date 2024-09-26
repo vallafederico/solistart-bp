@@ -2,7 +2,9 @@ import { Mesh, PlaneGeometry, RawShaderMaterial, DoubleSide } from "three";
 import { createWebGlNode } from "../scene";
 import { onMount, onCleanup } from "solid-js";
 import { Resizer } from "../gl";
+import { Scroll } from "~/scroll";
 import { clientRectGl } from "~/utils/clientRect";
+import { Gl } from "../gl";
 
 import vertexShader from "./vertex.vert";
 import fragmentShader from "./fragment.frag";
@@ -28,8 +30,15 @@ export function webglNode(self) {
 
 export class Node extends Mesh {
   #id = Resizer.subscribe(this.#resize.bind(this));
+  #scrollUnsub = Scroll.subscribe(this.#scroll.bind(this));
+
   geometry = new PlaneGeometry(size, size, res, res);
   material = new Material();
+
+  #ctrl = {
+    x: 0,
+    y: 0,
+  };
 
   constructor(item) {
     super();
@@ -40,13 +49,20 @@ export class Node extends Mesh {
   #resize() {
     // console.log("resize", this.item);
     const rect = clientRectGl(this.item);
-    this.position.x = rect.centerx;
-    this.position.y = rect.centery;
+    this.#ctrl.x = this.position.x = rect.centerx;
+    this.#ctrl.y = rect.centery;
+    this.position.y = this.#ctrl.y + Scroll.y * Gl.vp.px;
+
     this.scale.set(rect.width, rect.height, 1);
+  }
+
+  #scroll({ velocity, scroll, direction, progress }) {
+    this.position.y = this.#ctrl.y + scroll * Gl.vp.px;
   }
 
   dispose() {
     Resizer.unsubscribe(this.#id);
+    this.#scrollUnsub();
     this.parent.remove(this);
     this.geometry.dispose();
     this.material.dispose();

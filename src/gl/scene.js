@@ -40,12 +40,8 @@ export class Scene extends S {
 }
 
 // (*) prevent recreation if one with same id already exists
-export function createWebGlNode(
-  domNode,
-  webglNode = Node,
-  attachTo = Gl.scene,
-) {
-  const it = new webglNode(domNode);
+export function createWebGlNode(self, webglNode = Node, attachTo = Gl.scene) {
+  const it = new webglNode(self);
   attachTo.add(it);
   return it;
 }

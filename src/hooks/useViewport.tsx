@@ -4,7 +4,7 @@ import { viewport, setViewport } from "~/stores/viewport";
 
 import { App } from "~/app/app";
 
-export function startApp() {
+export function useViewport() {
   createEffect(() => {
     setViewport("size", {
       width: window.innerWidth,

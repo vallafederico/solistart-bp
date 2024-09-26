@@ -6,7 +6,6 @@ import {
   createUniqueId,
   createSignal,
 } from "solid-js";
-// import { viewport } from "~/stores/viewport";
 import { clientRect } from "~/utils/clientRect";
 import { clamp, map, lerp as lerpFunc } from "~/utils/math";
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer";

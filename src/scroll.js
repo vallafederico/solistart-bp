@@ -1,10 +1,16 @@
 import Lenis from "lenis";
 import gsap from "~/gsap";
 import { App } from "~/app/app";
-// import { lerp } from "~/utils/math";
 
+// (*) restructure in a smarter way
 export class Scroll {
   static subscribers = [];
+
+  static {
+    if (typeof window !== "undefined") {
+      this.init();
+    }
+  }
 
   static subscribe(sub, id) {
     if (!this.subscribers.find(({ id: _id }) => _id === id))
@@ -18,18 +24,18 @@ export class Scroll {
   }
 
   static init() {
+    this.y = window.scrollY || 0;
     this.lenis = new Lenis();
 
     gsap.ticker.add((time) => this.lenis.raf(time * 1000));
 
     this.lenis.on("scroll", ({ velocity, scroll, direction, progress }) => {
+      this.y = scroll;
       this.onScroll({ velocity, scroll, direction, progress });
-      App.onScroll({ velocity, scroll, direction, progress });
     });
   }
 
   static get scrollEventData() {
-    // console.log(this.lenis.progress);
     return {
       velocity: this.lenis.velocity,
       scroll: this.lenis.scroll,

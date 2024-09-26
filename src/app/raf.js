@@ -3,6 +3,11 @@ import gsap from "~/gsap";
 // raf
 export class Raf {
   static subscribers = [];
+  static {
+    if (typeof window !== "undefined") {
+      this.init();
+    }
+  }
 
   static subscribe(sub, id) {
     if (!this.subscribers.find(({ id: _id }) => _id === id))
