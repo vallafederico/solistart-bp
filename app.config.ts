@@ -18,6 +18,12 @@ const plugins = [
 ];
 
 export default defineConfig({
+  server: {
+    prerender: {
+      routes: ["/"],
+      // crawlLinks: true, /* prerenders all */
+    },
+  },
   vite: {
     plugins: plugins,
   },

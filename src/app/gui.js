@@ -1,6 +1,5 @@
 import GUI from "lil-gui";
-
-const isClient = typeof window !== "undefined";
+import { isClient } from "~/utils/isClient";
 
 const guiKey = "GUI_STATE";
 
