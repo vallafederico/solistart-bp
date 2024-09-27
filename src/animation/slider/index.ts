@@ -1,6 +1,6 @@
 import { createEffect, createUniqueId, onCleanup } from "solid-js";
 import { Raf } from "~/app/raf";
-import { viewport } from "~/stores/viewport";
+import { viewport } from "~/stores/viewportStore";
 import { SliderApi } from "~/animation/slider/lib";
 
 export const styles = {

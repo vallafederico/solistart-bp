@@ -22,7 +22,7 @@ import sim1 from "./sim.frag";
 
 const CUT = 0.5;
 
-export class Screen extends Scene {
+export class ScreenEffect extends Scene {
   debug = false;
   targetSize = [Gl.vp.w * CUT, Gl.vp.h * CUT];
   plane = new Mesh(new PlaneGeometry(2, 2), new Material());

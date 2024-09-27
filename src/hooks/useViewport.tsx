@@ -1,6 +1,6 @@
 import { createEffect } from "solid-js";
 import { makeResizeObserver } from "@solid-primitives/resize-observer";
-import { viewport, setViewport } from "~/stores/viewport";
+import { viewport, setViewport } from "~/stores/viewportStore";
 
 export function useViewport() {
   createEffect(() => {

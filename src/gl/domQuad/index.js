@@ -10,7 +10,7 @@ import fragmentShader from "./fragment.frag";
 const size = 1;
 const res = 1;
 
-export class Node extends Mesh {
+export class DomQuad extends Mesh {
   #id = Resizer.subscribe(this.#resize.bind(this));
   #scrollUnsub = Scroll.subscribe(this.#scroll.bind(this), Symbol("node"));
 
@@ -35,11 +35,15 @@ export class Node extends Mesh {
     this.position.y = this.#ctrl.y + Scroll.y * Gl.vp.px;
 
     this.scale.set(rect.width, rect.height, 1);
+
+    if (this.resize) this.resize(rect);
   }
 
   #scroll({ velocity, scroll, direction, progress }) {
     // (*) [OPTIM] this calculation should be done only once and not in every component
     this.position.y = this.#ctrl.y + scroll * Gl.vp.px;
+
+    if (this.scroll) this.scroll({ velocity, scroll, direction, progress });
   }
 
   dispose() {

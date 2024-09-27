@@ -17,6 +17,9 @@ export default {
         gy: "5vh",
         ...grid,
       },
+      aspectRatio: {
+        "5/7": "5/7",
+      },
     },
   },
   plugins: [],

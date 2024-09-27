@@ -1,12 +1,11 @@
 import { onMount, onCleanup, createSignal } from "solid-js";
 import { Gl } from "~/gl/gl";
-import { Node as Nd } from "~/gl/node";
 
 // (*) prevent recreation if one with same id already exists
 
 export function createWebGlNode(
   self: HTMLElement,
-  webglNode: any = Nd,
+  webglNode: any,
   attachTo: any = null,
 ) {
   if (!webglNode) return;

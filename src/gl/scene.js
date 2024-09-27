@@ -4,7 +4,7 @@ import { Quad } from "./quad";
 import { Text } from "./text";
 import { Instance } from "./instance";
 
-import { Node } from "./node";
+// import { Node } from "./quadNode";
 
 // (*) test and setup loader
 

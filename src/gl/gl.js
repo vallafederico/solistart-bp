@@ -9,7 +9,7 @@ import { useMouseSpeed } from "./utils/mouseSpeed";
 
 import { Scene } from "./scene";
 import { Post } from "./post/post";
-import { Screen } from "./screen";
+import { ScreenEffect } from "./screenEffect";
 import { Scroll } from "~/scroll";
 import { Resizer } from "./resizer";
 
@@ -81,7 +81,7 @@ export class Gl {
 
   static async init() {
     this.scene = new Scene();
-    this.screen = new Screen();
+    this.screen = new ScreenEffect();
     this.post = new Post();
 
     gsap.ticker.add(this.render.bind(this));

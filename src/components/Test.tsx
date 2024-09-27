@@ -1,5 +1,4 @@
 import { createEffect, onMount, createSignal } from "solid-js";
-import { webgl } from "~/stores/webgl";
 
 const useSomething = () => {
   const [domItem, setDomItem] = createSignal(null);

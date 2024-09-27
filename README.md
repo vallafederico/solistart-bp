@@ -11,4 +11,9 @@
   - [ ] three
 - [ ] /scripts with scripts for loading things
 
+# webgl
+
+- [ ] `getscreensize.glsl`
+- [ ] portal class -> scene with rendertarget, plane and auto resizer to screen size
+
 ---
