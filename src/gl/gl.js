@@ -11,6 +11,7 @@ import { Scene } from "./scene";
 import { Post } from "./post/post";
 import { Screen } from "./screen";
 import { Scroll } from "~/scroll";
+import { Resizer } from "./resizer";
 
 export const params = {
   clearColor: [1, 0, 0, 1],
@@ -64,7 +65,8 @@ export class Gl {
     this.controls = new OrbitControls(this.camera, document.body);
     this.controls.enabled = false;
 
-    queueMicrotask(() => this.init());
+    // queueMicrotask(() => this.init());
+    this.init();
     this.evt = this._evt();
   }
 
@@ -176,49 +178,8 @@ function manager(ctrl) {
   };
 }
 
-// -- evts
-export class Resizer {
-  static subscribers = [];
-  static observer;
-
-  static init(container, callback = null) {
-    // console.log("init resizer", this.subscribers);
-    this.observer = new ResizeObserver((entry) => {
-      this.subscribers.forEach((sub) => {
-        sub.cb(entry[0].contentRect);
-      });
-    });
-
-    if (callback) this.subscribers.push({ cb: callback, id: "init" });
-
-    this.observer.observe(container);
-    return this.dispose.bind(this);
-  }
-
-  static dispose() {
-    this.observer.disconnect();
-  }
-
-  static subscribe(cb, id = Symbol()) {
-    this.subscribers.push({ cb, id });
-    return id;
-  }
-
-  static unsubscribe(id) {
-    this.subscribers = this.subscribers.filter((sub) => sub.id !== id);
-  }
-}
-
-// function handleResize(container, cb) {
-//   const ro = new ResizeObserver((entry) => cb(entry[0].contentRect));
-//   ro.observe(container);
-//   return () => {
-//     ro.disconnect();
-//   };
-// }
-
 const { calculateMouseSpeed } = useMouseSpeed();
-function handleMouseMove(e, cb) {
+export function handleMouseMove(e, cb) {
   document.addEventListener("mousemove", (e) => {
     const speed = calculateMouseSpeed(e);
     cb(e, speed);

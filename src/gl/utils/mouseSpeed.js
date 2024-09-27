@@ -1,7 +1,4 @@
 // (*) fix NaN when HMR
-
-// useMouseSpeed.js
-
 export function useMouseSpeed() {
   let mouseSpeed = 0;
   let lastMousePosition = { x: 0, y: 0 };

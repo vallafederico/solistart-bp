@@ -7,6 +7,7 @@ export default function Canvas() {
       // console.log("start");
       Gl.start(self);
     });
+
     onCleanup(() => {
       // console.log("cleanup");
       Gl.destroy();

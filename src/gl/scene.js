@@ -12,8 +12,8 @@ export class Scene extends S {
   constructor() {
     super();
 
-    this.quad = new Quad();
-    this.add(this.quad);
+    // this.quad = new Quad();
+    // this.add(this.quad);
 
     // this.text = new Text();
     // this.add(this.text);
@@ -22,8 +22,8 @@ export class Scene extends S {
     // this.add(this.instance);
 
     setTimeout(() => {
-      console.log(this.children);
-    }, 1);
+      // console.log(this.children);
+    }, 100);
   }
 
   async load() {}
@@ -37,13 +37,4 @@ export class Scene extends S {
     //   if (child.dispose) child.dispose();
     // });
   }
-}
-
-// (*) prevent recreation if one with same id already exists
-export function createWebGlNode(self, webglNode, attachTo = Gl.scene) {
-  if (!webglNode) return;
-
-  const it = new webglNode(self);
-  attachTo.add(it);
-  return it;
 }

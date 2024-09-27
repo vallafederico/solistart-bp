@@ -24,6 +24,11 @@ export const Nav = () => {
           </Aa>
         </li>
         <li>
+          <Aa to="/webgl" class="px-3">
+            WebGl
+          </Aa>
+        </li>
+        <li>
           <Aa to="/data-loading" class="px-3">
             Data Loading
           </Aa>

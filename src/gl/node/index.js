@@ -1,5 +1,5 @@
 import { Mesh, PlaneGeometry, RawShaderMaterial, DoubleSide } from "three";
-import { Resizer } from "../gl";
+import { Resizer } from "../resizer";
 import { Scroll } from "~/scroll";
 import { clientRectGl } from "~/utils/clientRect";
 import { Gl } from "../gl";
@@ -9,9 +9,6 @@ import fragmentShader from "./fragment.frag";
 
 const size = 1;
 const res = 1;
-
-// (*) should be made smarter
-// (*) should probably be a group ??
 
 export class Node extends Mesh {
   #id = Resizer.subscribe(this.#resize.bind(this));
