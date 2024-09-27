@@ -1,5 +1,6 @@
 import Lenis from "lenis";
 import gsap from "~/gsap";
+import { isClient } from "./utils/isClient";
 
 import { Gl } from "./gl/gl";
 
@@ -8,7 +9,7 @@ export class Scroll {
   static subscribers = [];
 
   static {
-    if (typeof window !== "undefined") {
+    if (isClient) {
       this.init();
     }
   }
