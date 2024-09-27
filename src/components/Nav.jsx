@@ -19,8 +19,8 @@ export const Nav = () => {
           </Aa>
         </li>
         <li>
-          <Aa to="/lib" class="px-3">
-            Lib
+          <Aa to="/animation" class="px-3">
+            Animation
           </Aa>
         </li>
         <li>

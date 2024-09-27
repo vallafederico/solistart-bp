@@ -1,4 +1,7 @@
+import "./styles/variables.css";
 import "./app.css";
+import "./styles/animation.css";
+
 import { MetaProvider, Title } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";

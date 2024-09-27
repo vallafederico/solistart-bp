@@ -15,7 +15,6 @@ export default function Home() {
       <Title>Home</Title>
       <Section class="h-[80vh] px-gx">
         <h1 use:animateAlpha>Home</h1>
-        <Test />
       </Section>
     </main>
   );
