@@ -1,8 +1,6 @@
 import Lenis from "lenis";
-import gsap from "~/gsap";
-import { isClient } from "./utils/isClient";
-
-import { Gl } from "./gl/gl";
+import gsap from "./gsap";
+import { isClient } from "../utils/isClient";
 
 // (*) restructure in a smarter way
 export class Scroll {

@@ -12,11 +12,12 @@
     "noEmit": true,
     "types": ["vinxi/types/client", "vite-plugin-glsl/ext"],
     "isolatedModules": true,
+    "baseUrl": "./",
     "paths": {
-      "~/*": ["./src/*"],
       "@gl/*": ["./src/gl/*"],
       "@components/*": ["./src/components/*"],
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "~/*": ["./src/*"]
     }
   }
 }

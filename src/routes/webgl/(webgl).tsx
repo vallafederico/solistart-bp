@@ -4,8 +4,8 @@ import Section from "~/components/Section";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
 
-import DomGroupElement from "~/gl/domGroup/DomGroupElement";
-import DomQuadElement from "~/gl/domQuad/DomQuadElement";
+import DomGroupElement from "~/app/gl/domGroup/DomGroupElement";
+import DomQuadElement from "~/app/gl/domQuad/DomQuadElement";
 
 export default function WebGl() {
   setLocationCallback();

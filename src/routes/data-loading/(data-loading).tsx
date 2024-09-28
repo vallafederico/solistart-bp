@@ -22,29 +22,35 @@ async function wait(time = 1): Promise<void> {
 const getContent = cache(async () => {
   "use server";
 
-  await wait(2);
+  console.log("loading...");
+
+  await wait(1);
+
   return {
     hello: "world",
   };
 }, "content");
 
-export const Page = {
-  load: async () => await getContent(),
-};
+// (*) how does this work?
+
+// export const route = {
+//   load: async () => await getContent(),
+// };
 
 export default function Test2() {
   setLocationCallback();
-  const data = createAsync(async () => await getContent());
+
+  const loadeddata = createAsync(async () => await getContent());
 
   createEffect(() => {
-    console.log("data", data());
+    console.log("data", loadeddata());
   });
 
   return (
     <main class="min-h-[100vh] pt-20">
       <Section class="px-gx">
         <div>The next bit is data</div>
-        <div>{data()?.hello}</div>
+        <div>{loadeddata()?.hello}</div>
       </Section>
     </main>
   );

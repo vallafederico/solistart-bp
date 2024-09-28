@@ -1,8 +1,8 @@
 import { WebGLRenderer, PerspectiveCamera } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import gsap from "~/gsap";
+import gsap from "../gsap";
 
-import { Device } from "../app/device";
+import { Device } from "../device";
 import { Gui } from "~/app/gui";
 import { lerp } from "~/utils/math";
 import { useMouseSpeed } from "./utils/mouseSpeed";
@@ -10,7 +10,7 @@ import { useMouseSpeed } from "./utils/mouseSpeed";
 import { Scene } from "./scene";
 import { Post } from "./post/post";
 import { ScreenEffect } from "./screenEffect";
-import { Scroll } from "~/scroll";
+import { Scroll } from "../scroll";
 import { Resizer } from "./resizer";
 
 export const params = {
@@ -137,6 +137,8 @@ export class Gl {
 
   static destroy() {
     this.renderer.dispose();
+    this.scene.dispose();
+
     this.vp.container.removeChild(this.renderer.domElement);
     this.evt.forEach((e) => e());
   }

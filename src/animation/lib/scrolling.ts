@@ -1,4 +1,4 @@
-import { Scroll } from "~/scroll";
+import { Scroll } from "~/app/scroll";
 import { Raf } from "~/app/raf";
 import {
   createEffect,

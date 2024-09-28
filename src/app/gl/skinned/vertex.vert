@@ -18,5 +18,5 @@ void main() {
   #include <project_vertex>
   #include <worldpos_vertex>
   
-  v_normal = normalMatrix * normal;
+  v_normal = normalize(normalMatrix * normal);
 }

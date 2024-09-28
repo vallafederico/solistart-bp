@@ -9,7 +9,7 @@ import {
 import fragmentShader from "./fragment.frag";
 import vertexShader from "./vertex.vert";
 
-import { Gl } from "~/gl/gl";
+import { Gl } from "../gl";
 
 // (*) add gpgpu basic functionality and make a GpuInstance class
 // -- try rendering the canvas to worker with offscreenCanvas

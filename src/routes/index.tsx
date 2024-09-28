@@ -1,7 +1,6 @@
 import { Title } from "@solidjs/meta";
-import Counter from "~/components/Counter";
+
 import Section from "~/components/Section";
-import Aa from "~/components/Aa";
 import Test from "~/components/Test";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";

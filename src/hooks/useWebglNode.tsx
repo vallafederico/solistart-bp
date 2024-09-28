@@ -1,5 +1,5 @@
 import { onMount, onCleanup, createSignal } from "solid-js";
-import { Gl } from "~/gl/gl";
+import { Gl } from "~/app/gl/gl";
 
 // (*) prevent recreation if one with same id already exists
 

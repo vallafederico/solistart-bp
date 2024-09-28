@@ -1,4 +1,4 @@
-import gsap from "~/gsap";
+import gsap from "./gsap";
 
 // raf
 export class Raf {
@@ -9,7 +9,7 @@ export class Raf {
     }
   }
 
-  static subscribe(sub, id) {
+  static subscribe(sub, id = Symbol()) {
     if (!this.subscribers.find(({ id: _id }) => _id === id))
       this.subscribers.push({ sub, id });
   }

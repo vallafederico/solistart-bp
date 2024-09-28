@@ -1,4 +1,4 @@
-import gsap from "~/gsap";
+import gsap from "~/app/gsap";
 
 export const globalOut = async () =>
   await gsap.to("main", {

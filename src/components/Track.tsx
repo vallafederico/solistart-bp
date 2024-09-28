@@ -1,5 +1,5 @@
 import { onScroll, onTrack, onIntersect, onPageLeave } from "~/animation/";
-import gsap from "~/gsap";
+import gsap from "@app/gsap";
 
 export default function Track({
   children,

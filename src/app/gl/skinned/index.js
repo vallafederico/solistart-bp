@@ -12,7 +12,7 @@ const scale = 1;
 
 // (*?) and check
 
-export class SkinnedMesh extends Group {
+export class Skinned extends Group {
   constructor({ model, animations }) {
     super();
     this.model = getMesh(model, Material);

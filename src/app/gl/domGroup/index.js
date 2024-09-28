@@ -1,21 +1,15 @@
-import { Mesh, PlaneGeometry, RawShaderMaterial, DoubleSide } from "three";
+import { Group, RawShaderMaterial, DoubleSide } from "three";
 import { Resizer } from "../resizer";
-import { Scroll } from "~/scroll";
+import { Scroll } from "../../scroll";
 import { clientRectGl } from "~/utils/clientRect";
 import { Gl } from "../gl";
 
 import vertexShader from "./vertex.vert";
 import fragmentShader from "./fragment.frag";
 
-const size = 1;
-const res = 1;
-
-export class DomQuad extends Mesh {
+export class DomGroup extends Group {
   #id = Resizer.subscribe(this.#resize.bind(this));
   #scrollUnsub = Scroll.subscribe(this.#scroll.bind(this), Symbol("node"));
-
-  geometry = new PlaneGeometry(size, size, res, res);
-  material = new Material();
 
   #ctrl = {
     x: 0,
@@ -34,8 +28,6 @@ export class DomQuad extends Mesh {
     this.#ctrl.y = rect.centery;
     this.position.y = this.#ctrl.y + Scroll.y * Gl.vp.px;
 
-    this.scale.set(rect.width, rect.height, 1);
-
     if (this.resize) this.resize(rect);
   }
 
@@ -50,8 +42,6 @@ export class DomQuad extends Mesh {
     Resizer.unsubscribe(this.#id);
     this.#scrollUnsub();
     this.parent.remove(this);
-    this.geometry.dispose();
-    this.material.dispose();
   }
 }
 

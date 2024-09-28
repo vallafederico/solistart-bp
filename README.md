@@ -9,9 +9,9 @@
 
 # webgl
 
-- [ ] `getscreensize.glsl`
+- [x] `imageuv.glsl`
 - [ ] portal class -> scene with rendertarget, plane and auto resizer to screen size
-- [ ] /scripts with scripts for loading things
+- [ ] /scripts with scripts for loading/optimising/converting things
 
 # Solid
 
