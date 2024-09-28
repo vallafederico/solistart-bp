@@ -11,10 +11,26 @@ export default {
       sans: ["soh", "sans-serif"],
     },
     extend: {
+      fontSize: {
+        base: ["var(--text-base)", 1.2],
+        xs: ["var(--text-xs)", 1.2],
+        sm: ["var(--text-sm)", 1.2],
+        md: ["var(--text-md)", 1.2],
+        lg: ["var(--text-lg)", 1],
+        xl: ["var(--text-xl)", 1],
+        xxl: ["var(--text-xxl)", 0.9],
+      },
       spacing: {
-        gx: "5vw",
         px: "2vh",
+        gx: "5vw",
         gy: "5vh",
+
+        sm: "var(--sm)",
+        md: "var(--md)",
+        lg: "var(--lg)",
+        xl: "var(--xl)",
+        xxl: "var(--xxl)",
+
         ...grid,
       },
       aspectRatio: {

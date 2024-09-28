@@ -12,6 +12,7 @@
 - [x] `imageuv.glsl`
 - [ ] portal class -> scene with rendertarget, plane and auto resizer to screen size
 - [ ] /scripts with scripts for loading/optimising/converting things
+- [ ] domText element in webgl
 
 # Solid
 

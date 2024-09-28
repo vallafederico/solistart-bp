@@ -21,9 +21,9 @@ export class Scene extends S {
     // this.instance = new Instance();
     // this.add(this.instance);
 
-    setTimeout(() => {
-      // console.log(this.children);
-    }, 100);
+    // setTimeout(() => {
+    //   console.log(this.children);
+    // }, 100);
   }
 
   async load() {}

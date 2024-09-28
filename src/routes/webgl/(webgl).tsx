@@ -1,5 +1,4 @@
 import { Title } from "@solidjs/meta";
-
 import Section from "~/components/Section";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
@@ -11,10 +10,10 @@ export default function WebGl() {
   setLocationCallback();
 
   return (
-    <main class="min-h-[100vh] pt-20">
+    <main class="min-h-[100vh]">
       <Title>Home</Title>
 
-      <Section class="flex-center flex h-[150vh] gap-6 px-gx">
+      <Section class="flex-center flex h-[100vh] gap-6 px-gx">
         <DomQuadElement />
       </Section>
     </main>

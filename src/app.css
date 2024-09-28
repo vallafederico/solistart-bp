@@ -52,11 +52,16 @@ h4 {
 }
 
 body {
-  @apply font-sans text-white bg-black;
+  @apply bg-black font-sans text-base text-white;
 }
 
 .flex-center {
   @apply flex items-center justify-center;
+}
+
+.contain {
+  @apply mx-auto;
+  max-width: var(--max-w);
 }
 
 @layer components {

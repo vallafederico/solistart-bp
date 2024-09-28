@@ -1,5 +1,6 @@
-import { onMount, onCleanup, createSignal } from "solid-js";
+import { onMount, onCleanup, createSignal, createEffect } from "solid-js";
 import { Gl } from "~/app/gl/gl";
+import { createVisibilityObserver } from "@solid-primitives/intersection-observer";
 
 // (*) prevent recreation if one with same id already exists
 
@@ -20,12 +21,24 @@ export const useWebglNode = (
   classToInstantiate: any,
   sceneToAttachTo: any = null,
 ) => {
+  const vo = createVisibilityObserver({ threshold: 0 });
+
   const [ref, setRef] = createSignal<HTMLElement | null>(null);
   const [node, setNode] = createSignal<any>(null);
 
   onMount(() => {
     if (!ref()) return;
+    const visible = vo(ref());
+
     setNode(createWebGlNode(ref(), classToInstantiate, sceneToAttachTo));
+
+    createEffect(() => {
+      if (visible()) {
+        node().inView = true;
+      } else if (!visible()) {
+        node().inView = false;
+      }
+    });
   });
 
   onCleanup(() => {

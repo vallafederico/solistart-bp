@@ -8,6 +8,7 @@ import vertexShader from "./vertex.vert";
 import fragmentShader from "./fragment.frag";
 
 export class DomGroup extends Group {
+  // inView = true;
   #id = Resizer.subscribe(this.#resize.bind(this));
   #scrollUnsub = Scroll.subscribe(this.#scroll.bind(this), Symbol("node"));
 
@@ -32,6 +33,7 @@ export class DomGroup extends Group {
   }
 
   #scroll({ velocity, scroll, direction, progress }) {
+    if (!this.inView) return;
     // (*) [OPTIM] this calculation should be done only once and not in every component
     this.position.y = this.#ctrl.y + scroll * Gl.vp.px;
 

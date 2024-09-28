@@ -29,8 +29,8 @@ export default function Track({
     // });
     /** -- Scroll Track Based */
     // onTrack(track, (value: any) => {
-    //   console.log(value);
-    //   self.style.transform = `translateX(${value * 1000}px)`;
+    //   // console.log(value);
+    //   self.style.transform = `translateY(${-value * 1000}px)`;
     // });
   };
 

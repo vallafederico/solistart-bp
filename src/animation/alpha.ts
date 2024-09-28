@@ -1,15 +1,6 @@
 import gsap from "~/app/gsap";
 import { onIntersect, onPageLeave } from "~/animation/";
 
-declare module "solid-js" {
-  namespace JSX {
-    interface DirectiveFunctions {
-      // use:model
-      animateAlpha: typeof animateAlpha;
-    }
-  }
-}
-
 export const animateAlpha = (self: HTMLElement) => {
   let viewAnimation: GSAPAnimation;
 
