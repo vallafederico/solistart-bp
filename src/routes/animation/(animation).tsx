@@ -31,7 +31,7 @@ export default function About() {
       </div>
 
       <Section class="py-[100vh]">
-        <Track class="h-[100vh] border">hello</Track>
+        <Track class="">hello</Track>
       </Section>
     </main>
   );
