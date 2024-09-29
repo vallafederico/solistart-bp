@@ -13,9 +13,9 @@ export default function WebGl() {
     <main class="min-h-[100vh]">
       <Title>Home</Title>
 
-      <Section class="flex-center flex h-[100vh] gap-6 px-gx">
+      {/* <Section class="flex-center flex h-[100vh] gap-6 px-gx">
         <DomQuadElement />
-      </Section>
+      </Section> */}
     </main>
   );
 }

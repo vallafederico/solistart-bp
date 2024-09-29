@@ -18,6 +18,7 @@ export const params = {
 };
 
 export class Gl {
+  static subscribers = [];
   static paused = false;
   static time = 0;
   static mouse = {
@@ -65,7 +66,6 @@ export class Gl {
     this.controls = new OrbitControls(this.camera, document.body);
     this.controls.enabled = false;
 
-    // queueMicrotask(() => this.init());
     this.init();
     this.evt = this._evt();
   }
@@ -100,6 +100,8 @@ export class Gl {
     this.controls?.update();
     this.screen?.render(this.time);
     this.scene?.render(this.time);
+
+    this.subscribers.forEach((sub) => sub.cb(this.time));
 
     if (this.screen?.debug) {
       this.renderer.render(this.screen, this.screen.camera);
@@ -157,9 +159,23 @@ export class Gl {
 
     return (px + py) / 2;
   }
+
+  // -- lifecycle
+  static subscribe(cb, priority = 0) {
+    const id = Symbol();
+    this.subscribers.push({ cb, id });
+    this.subscribers.sort((a, b) => a.priority - b.priority);
+
+    return () => this.unsubscribe(id);
+  }
+
+  static unsubscribe(id) {
+    this.subscribers = this.subscribers.filter((sub) => sub.id !== id);
+  }
 }
 
 /** -- Utils */
+
 function manager(ctrl) {
   function handler(e) {
     if (e.key === " ") {

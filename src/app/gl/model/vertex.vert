@@ -3,6 +3,7 @@
 
 attribute vec3 position;
 attribute vec2 uv;
+attribute vec3 normal;
 uniform mat4 modelViewMatrix;
 uniform mat4 projectionMatrix;
 uniform mat3 normalMatrix;

@@ -1,15 +1,16 @@
 import { Title } from "@solidjs/meta";
 
 import Section from "~/components/Section";
-import Aa from "~/components/Aa";
-import { json } from "@solidjs/router";
+import { Show } from "solid-js";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
 import { animateAlpha } from "~/animation/alpha.js";
 
 import { createAsync } from "@solidjs/router";
-import { createEffect } from "solid-js";
+import { createEffect, createResource } from "solid-js";
 import { cache } from "@solidjs/router";
+
+// (*) how does this work?
 
 async function wait(time = 1): Promise<void> {
   return new Promise((resolve) => {
@@ -23,35 +24,110 @@ const getContent = cache(async () => {
   "use server";
 
   console.log("loading...");
-
-  await wait(1);
+  await Promise.all([wait(1.5), wait(0.5)]);
 
   return {
     hello: "world",
   };
-}, "content");
+}, "loadeddata");
 
-// (*) how does this work?
+export const route = {
+  preload: async () => await getContent(),
+};
 
-// export const route = {
-//   load: async () => await getContent(),
-// };
-
-export default function Test2() {
+export default function Data() {
   setLocationCallback();
 
-  const loadeddata = createAsync(async () => await getContent());
+  const loadeddata = createAsync(() => getContent());
 
   createEffect(() => {
     console.log("data", loadeddata());
   });
 
   return (
-    <main class="min-h-[100vh] pt-20">
-      <Section class="px-gx">
-        <div>The next bit is data</div>
-        <div>{loadeddata()?.hello}</div>
-      </Section>
-    </main>
+    <Show when={loadeddata()}>
+      {(data) => {
+        const { hello } = data();
+
+        return (
+          <main class="min-h-[100vh] pt-20">
+            <Title>{hello}</Title>
+            <Section class="px-gx">
+              <div>The next bit is data</div>
+              <div>{hello}</div>
+            </Section>
+          </main>
+        );
+      }}
+    </Show>
   );
 }
+
+/*
+
+export default function Data() {
+  setLocationCallback();
+
+  const loadeddata = createAsync(() => getContent());
+  
+  createEffect(() => {
+    console.log("data", loadeddata());
+  });
+
+  return (
+    <Show when={loadeddata()}>
+      {(data) => {
+        const { hello } = data();
+
+        return (
+          <main class="min-h-[100vh] pt-20">
+            <Title>{hello}</Title>
+            <Section class="px-gx">
+              <div>The next bit is data</div>
+              <div>{hello}</div>
+            </Section>
+          </main>
+        );
+      }}
+    </Show>
+  );
+}
+  
+*/
+
+/*
+
+export default function Data() {
+  setLocationCallback();
+
+  return (
+    <Data dataFunc={getContent}>
+      {({ hello, user, age }) => (
+        <main class="min-h-[100vh] pt-20">
+          <Title>{hello}</Title>
+          <Section class="px-gx">
+            <div>The next bit is data</div>
+            <div>{hello}</div>
+            <div>{user}</div>
+            <div>{age}</div>
+          </Section>
+        </main>
+      )}
+    </Data>
+  );
+}
+
+const Data = ({ dataFunc, children }) => {
+  const data = createAsync(() => dataFunc());
+
+  return (
+    <Show when={data()}>
+      {(loadedData) => {
+        const props = loadedData();
+        return children(props);
+      }}
+    </Show>
+  );
+};
+
+*/

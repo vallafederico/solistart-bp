@@ -1,23 +1,37 @@
-import { Mesh, PlaneGeometry, RawShaderMaterial, DoubleSide } from "three";
+import {
+  Mesh,
+  Group,
+  PlaneGeometry,
+  RawShaderMaterial,
+  DoubleSide,
+} from "three";
 
 import vertexShader from "./vertex.vert";
 import fragmentShader from "./fragment.frag";
 
-// (*) make model/group and use findGroup
+import { Gl } from "../gl";
 
-const size = 1;
-const res = 1;
+const scale = 0.5;
 
-export class Quad extends Mesh {
-  geometry = new PlaneGeometry(size, size, res, res);
+export class Model extends Group {
   material = new Material();
+  #raf = Gl.subscribe(this.render.bind(this));
 
-  constructor() {
+  constructor(model) {
     super();
+
+    this.mesh = findMesh(model, this.material);
+    this.scale.set(scale, scale, scale);
+    this.add(this.mesh);
   }
 
   render(t) {
     // console.log(t);
+    // this.rotation.y = t;
+  }
+
+  dispose() {
+    this.#raf();
   }
 }
 
@@ -42,20 +56,15 @@ class Material extends RawShaderMaterial {
 }
 
 // -- utils
+function findMesh(obj, material = null) {
+  let mesh;
 
-function findGroup(obj) {
-  if (obj.isGroup === true) {
-    return obj;
-  }
-
-  for (const key in obj) {
-    if (typeof obj[key] === "object") {
-      const result = findGroup(obj[key]);
-      if (result) {
-        return result;
-      }
+  obj.traverse((child) => {
+    if (child.isMesh === true) {
+      child.material = material;
+      mesh = child;
     }
-  }
+  });
 
-  return null;
+  return mesh;
 }

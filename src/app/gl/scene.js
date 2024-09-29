@@ -3,6 +3,8 @@ import { Gl } from "./gl";
 import { Quad } from "./quad";
 import { Text } from "./text";
 import { Instance } from "./instance";
+import { loadAssets } from "./utils/loader";
+import { Model } from "./model";
 
 // import { Node } from "./quadNode";
 
@@ -11,6 +13,8 @@ import { Instance } from "./instance";
 export class Scene extends S {
   constructor() {
     super();
+
+    // this.load();
 
     // this.quad = new Quad();
     // this.add(this.quad);
@@ -26,7 +30,13 @@ export class Scene extends S {
     // }, 100);
   }
 
-  async load() {}
+  async load() {
+    this.assets = await loadAssets();
+    console.log("::", this.assets);
+
+    // this.model = new Model(this.assets.suzanne);
+    // this.add(this.model);
+  }
 
   render() {}
   resize() {}

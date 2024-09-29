@@ -1,11 +1,11 @@
 import { Title } from "@solidjs/meta";
-import Counter from "~/components/Counter";
+
 import Section from "~/components/Section";
 import Aa from "~/components/Aa";
 
 import { setLocationCallback } from "~/hooks/useLocationCallback";
 import { animateAlpha } from "~/animation/alpha.js";
-import Track from "~/components/Track";
+
 import { createAsync, redirect } from "@solidjs/router";
 import { createEffect } from "solid-js";
 import { cache } from "@solidjs/router";
@@ -23,7 +23,7 @@ const getData = cache(async () => {
   "use server";
 
   console.log("...");
-  await wait(1);
+  await wait(0.2);
   console.log("done");
 
   const cookies = parseCookies();

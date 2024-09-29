@@ -1,5 +1,8 @@
 import { useLocation, useNavigate } from "@solidjs/router";
 import { animateOutAndTransition } from "~/animation/";
+import { A } from "@solidjs/router";
+
+// https://docs.solidjs.com/solid-router/reference/primitives/use-before-leave
 
 export default function Aa({
   children,
@@ -20,13 +23,13 @@ export default function Aa({
   };
 
   return (
-    <a
+    <A
       ref={el}
       onClick={handleClick}
       href={to}
       class={className ? className + " inline-block" : "inline-block"}
     >
       {children}
-    </a>
+    </A>
   );
 }

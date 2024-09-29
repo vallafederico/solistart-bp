@@ -51,6 +51,10 @@ export class Scroll {
       sub({ velocity, scroll, direction, progress });
     });
   }
+
+  static to(params) {
+    this.lenis.scrollTo(params);
+  }
 }
 
 // Scroll.init();

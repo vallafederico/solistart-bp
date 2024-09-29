@@ -4,12 +4,10 @@ import { Gl } from "~/app/gl/gl";
 export default function Canvas() {
   const webgl = (self) => {
     createEffect(() => {
-      // console.log("start");
       Gl.start(self);
     });
 
     onCleanup(() => {
-      // console.log("cleanup");
       Gl.destroy();
     });
   };

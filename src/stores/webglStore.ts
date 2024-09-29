@@ -1,7 +1,7 @@
 import { createStore } from "solid-js/store";
 
 const [webgl, setWebgl] = createStore({
-  alive: false,
+  loaded: false,
 });
 
 export { webgl, setWebgl };
