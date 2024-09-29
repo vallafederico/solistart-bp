@@ -14,6 +14,21 @@ const plugins = [
   }),
   solidSvg({
     defaultAsComponent: true,
+    // svgo: {
+    //   enabled: false,
+    //   svgoConfig: {
+    //     plugins: [
+    //       {
+    //         name: "preset-default",
+    //         params: {
+    //           overrides: {
+    //             removeUselessDefs: false,
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
   }),
 ];
 

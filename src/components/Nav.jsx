@@ -1,11 +1,14 @@
 import Aa from "./Aa";
+import SocialSprite from "~/components/svg/socialSprite.svg?component-solid";
 
 export const Nav = () => {
   return (
-    <nav class="fixed left-0 top-0 z-[100] flex w-screen items-center justify-between px-gx py-4">
+    <nav class="fixed left-0 top-0 z-[100] flex w-screen items-center justify-between px-gx py-6">
       <Aa to="/">
         <p>LOGO</p>
       </Aa>
+
+      <SocialSprite class="size-[2em]" />
 
       <ul class="flex justify-between">
         <li>
