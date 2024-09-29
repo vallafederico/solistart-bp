@@ -1,5 +1,34 @@
 import Aa from "./Aa";
 import SocialSprite from "~/components/svg/socialSprite.svg?component-solid";
+import { RollingText } from "./animation/RollingText";
+import { For } from "solid-js";
+
+const NAV_LINKS = [
+  {
+    to: "/",
+    text: "Index",
+  },
+  {
+    to: "/about",
+    text: "About",
+  },
+  {
+    to: "/animation",
+    text: "Animation",
+  },
+  {
+    to: "/webgl",
+    text: "WebGl",
+  },
+  {
+    to: "/data-loading",
+    text: "Data",
+  },
+  {
+    to: "/protected",
+    text: "Protected",
+  },
+];
 
 export const Nav = () => {
   return (
@@ -8,39 +37,16 @@ export const Nav = () => {
         <p>LOGO</p>
       </Aa>
 
-      <SocialSprite class="size-[2em]" />
-
       <ul class="flex justify-between">
-        <li>
-          <Aa to="/" class="px-3">
-            Index
-          </Aa>
-        </li>
-        <li>
-          <Aa to="/about" class="px-3">
-            About
-          </Aa>
-        </li>
-        <li>
-          <Aa to="/animation" class="px-3">
-            Animation
-          </Aa>
-        </li>
-        <li>
-          <Aa to="/webgl" class="px-3">
-            WebGl
-          </Aa>
-        </li>
-        <li>
-          <Aa to="/data-loading" class="px-3">
-            Data Loading
-          </Aa>
-        </li>
-        <li>
-          <Aa to="/protected" class="px-3">
-            Protected
-          </Aa>
-        </li>
+        <For each={NAV_LINKS}>
+          {({ to, text }) => (
+            <li>
+              <Aa to={to}>
+                <RollingText class="px-3">{text}</RollingText>
+              </Aa>
+            </li>
+          )}
+        </For>
       </ul>
     </nav>
   );
