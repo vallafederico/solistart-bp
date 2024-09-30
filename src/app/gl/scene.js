@@ -34,8 +34,8 @@ export class Scene extends S {
     this.assets = await loadAssets();
     console.log("::", this.assets);
 
-    this.model = new Model(this.assets.suzanne);
-    this.add(this.model);
+    // this.model = new Model(this.assets.suzanne);
+    // this.add(this.model);
   }
 
   render() {}
