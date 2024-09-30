@@ -7,7 +7,7 @@ import { setLocationCallback } from "~/hooks/useLocationCallback";
 import { animateAlpha } from "~/animation/alpha.js";
 
 import { createAsync, redirect } from "@solidjs/router";
-import { createEffect } from "solid-js";
+import { createEffect, Show } from "solid-js";
 import { cache } from "@solidjs/router";
 import { parseCookies } from "vinxi/http";
 
@@ -41,26 +41,30 @@ const getData = cache(async () => {
 }, "test");
 
 export default function Test() {
-  const data = createAsync(async () => await getData());
-
   setLocationCallback();
+  const data = createAsync(async () => await getData());
 
   createEffect(() => {
     console.log("1", data());
   });
 
   return (
-    <main class="min-h-[100vh] pt-20">
-      <Section class="px-gx">
-        <div>baseline test1 route</div>
-        <div>{data()?.hello}</div>
+    <>
+      <Title>Protected: {data()?.hello}</Title>
+      <Show when={data()}>
+        <main class="min-h-[100vh] pt-20">
+          <Section class="px-gx">
+            <div>baseline test1 route</div>
+            <div>{data().hello}</div>
 
-        <a href="/protected/test2">to 2</a>
-        <div class="py-2">
-          <a href="/protected/">back</a>
-        </div>
-      </Section>
-    </main>
+            <Aa to="/protected/test2">to 2</Aa>
+            <div class="py-2">
+              <Aa to="/protected/">back</Aa>
+            </div>
+          </Section>
+        </main>
+      </Show>
+    </>
   );
 }
 
