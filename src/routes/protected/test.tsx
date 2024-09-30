@@ -50,8 +50,8 @@ export default function Test() {
 
   return (
     <>
-      <Title>Protected: {data()?.hello}</Title>
       <Show when={data()}>
+        <Title>Protected: {data()?.hello}</Title>
         <main class="min-h-[100vh] pt-20">
           <Section class="px-gx">
             <div>baseline test1 route</div>

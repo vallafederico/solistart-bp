@@ -20,8 +20,8 @@ export default function Test2() {
 
   return (
     <>
-      <Title>Protected: {data()?.hello}</Title>
       <Show when={data()}>
+        <Title>Protected: {data()?.hello}</Title>
         <main class="min-h-[100vh] pt-20">
           <Section class="px-gx">
             <div>test2 route</div>
