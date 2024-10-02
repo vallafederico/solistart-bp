@@ -21,9 +21,8 @@ export default {
         xxl: ["var(--text-xxl)", 0.9],
       },
       spacing: {
-        px: "2vh",
-        gx: "5vw",
-        gy: "5vh",
+        gx: "var(--gx)",
+        gy: "var(--gy)",
 
         sm: "var(--sm)",
         md: "var(--md)",

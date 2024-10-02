@@ -14,7 +14,7 @@ export class Scene extends S {
   constructor() {
     super();
 
-    this.load();
+    // this.load();
 
     // this.quad = new Quad();
     // this.add(this.quad);

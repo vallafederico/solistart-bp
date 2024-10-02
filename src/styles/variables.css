@@ -1,8 +1,8 @@
 :root {
   /* general */
-  --px: "2vh";
-  --gx: "5vw";
-  --gy: "5vh";
+
+  --gx: 5vw;
+  --gy: 5vh;
   --max-w: 1920px;
 
   /* spacing */
