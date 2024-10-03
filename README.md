@@ -1,5 +1,12 @@
 # SolidStart
 
+For turbo package
+
+```json
+"cms": "turbo run dev --filter={./apps/cms}",
+"web": "turbo run dev --filter={./apps/web}"
+```
+
 #### Todos
 
 - [x] make scroll track
