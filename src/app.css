@@ -6,6 +6,10 @@ html,
 body {
   overscroll-behavior: none;
   /* touch-action: none; */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
 }
 
 html,

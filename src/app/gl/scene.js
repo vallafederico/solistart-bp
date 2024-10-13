@@ -5,6 +5,7 @@ import { Text } from "./text";
 import { Instance } from "./instance";
 import { loadAssets } from "./utils/loader";
 import { Model } from "./model";
+import { GpuInstance } from "./gpuInstance";
 
 // import { Node } from "./quadNode";
 
@@ -28,6 +29,9 @@ export class Scene extends S {
     // setTimeout(() => {
     //   console.log(this.children);
     // }, 100);
+
+    // this.gpuInstance = new GpuInstance();
+    // this.add(this.gpuInstance);
   }
 
   async load() {
@@ -38,7 +42,9 @@ export class Scene extends S {
     // this.add(this.model);
   }
 
-  render() {}
+  render() {
+    // this.gpuInstance.render();
+  }
   resize() {}
   onScroll(scroll) {}
 
